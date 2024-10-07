@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: rama-engineering
+    env: python
+    build:
+      command: pip install -r requirements.txt
+    run:
+      command: gunicorn coupler_web.wsgi:application --workers 3 --bind 0.0.0.0:$PORT
+    envVars:
+      - KEY: VALUE
+    domains:
+      - rama-engineering.onrender.com
