@@ -1,0 +1,22 @@
+# Django framework
+Django>=4.0,<5.0
+
+# Gunicorn for running the application in production
+gunicorn
+
+psycopg2
+
+# Pillow for image processing
+Pillow
+
+# djangorestframework for building APIs
+djangorestframework
+
+
+requests
+
+# django-crispy-forms for better form rendering
+django-crispy-forms
+
+# crispy-bootstrap for styling cryspy forms with bootstrap 5
+crispy-bootstrap5
