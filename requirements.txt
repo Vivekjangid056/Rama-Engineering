@@ -20,3 +20,6 @@ django-crispy-forms
 
 # crispy-bootstrap for styling cryspy forms with bootstrap 5
 crispy-bootstrap5
+
+
+dj-database-url
