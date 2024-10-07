@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7a&uyl-(wb!!s%pw-=lrbtrv8ce_k_ddd6oldkc#x4w@*br!q)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://rama-engineering.onrender.com/"]
+ALLOWED_HOSTS = ["rama-engineering.onrender.com"]
 
 
 # Application definition
