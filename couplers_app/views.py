@@ -62,4 +62,4 @@ def thank_you(request):
 
 # username = Admin
 # email = arunjangid@gmail.com
-# password = arunjangid@123
+# password = Arunjangid@123

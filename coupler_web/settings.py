@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7a&uyl-(wb!!s%pw-=lrbtrv8ce_k_ddd6oldkc#x4w@*br!q)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["rama-engineering.onrender.com"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -74,20 +74,15 @@ WSGI_APPLICATION = 'coupler_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/opt/render/project/db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'Rama_Engineering',
+        'USER': 'postgres',
+        'PASSWORD': 'Vivek@056',
+        'HOST': 'localhost',
     }
 }
-
 
 
 # Password validation
@@ -124,10 +119,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_URL = '/static/'
 
 
 MEDIA_URL = '/media/'
