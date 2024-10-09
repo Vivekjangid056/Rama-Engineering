@@ -86,14 +86,21 @@ WSGI_APPLICATION = 'coupler_web.wsgi.application'
 # }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'rama_engineeringmurlipura',
+#         'USER': 'rama_engineeringmurlipura_user',
+#         'PASSWORD': 'aubSQW3Pp6LBbThUAUpjVNBCA7lFtsDr',
+#         'HOST': 'dpg-cs22umd6l47c73cr0cng-a',
+#         'PORT': '5432'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'rama_engineeringmurlipura',
-        'USER': 'rama_engineeringmurlipura_user',
-        'PASSWORD': 'aubSQW3Pp6LBbThUAUpjVNBCA7lFtsDr',
-        'HOST': 'dpg-cs22umd6l47c73cr0cng-a',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
