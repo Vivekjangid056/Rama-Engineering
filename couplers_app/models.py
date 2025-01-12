@@ -63,3 +63,20 @@ class AboutUs(models.Model):
 
     def __str__(self):
         return f"{self.number_of_clients} clients and {self.number_of_projects} has done"
+
+class EnquiryEmail(models.Model):
+    email = models.EmailField(max_length=200)
+
+    def save(self, *args, **kwargs):
+        # Ensure only one instance of the model exists
+        if EnquiryEmail.objects.exists():
+            # Delete the existing instance
+            EnquiryEmail.objects.all().delete()
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "EnquiryEmail Model"
+        verbose_name_plural = "EnquiryEmail Models"
+
+    def __str__(self):
+        return self.email

@@ -80,7 +80,8 @@ DATABASES = {
         'NAME': 'Rama_Engineering',
         'USER': 'postgres',
         'PASSWORD': 'm2@43TSB9&',
-        'HOST': '122.160.154.127'
+        'HOST': '122.160.154.127',
+        'PORT':'5432'
     }
 }
 
