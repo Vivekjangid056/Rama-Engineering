@@ -1,0 +1,408 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>ERP Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="icon" href="{% static 'assets/images/scholarbyteico.ico' %}" type="image/png" sizes="16x16" />
+    <!-- Bootstrap Css -->
+    <link href="{% static 'assets/css/bootstrap.min.css'%}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{% static 'assets/css/icons.min.css'%}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{% static 'assets/css/app.min.css'%}" id="app-style" rel="stylesheet" type="text/css" />
+    <!-- custon css -->
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css'%}">
+    <!-- crispy -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap452.min.css' %}">
+    <!-- DataTables -->
+    <link href="{% static 'assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css'%}" rel="stylesheet"
+        type="text/css" />
+    <link href="{% static 'assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css'%}" rel="stylesheet"
+        type="text/css" />
+
+    <!-- Responsive datatable examples -->
+    <link href="{% static 'assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css'%}"
+        rel="stylesheet" type="text/css" />
+    <script src="{% static 'assets/js/slim.min.js'%}"></script>
+    <script src="{% static 'assets/js/popper292.min.js'%}"></script>
+    <script src="{% static 'assets/js/bootstrap452.min.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+    <!-- dependent dropdown scripts -->
+    <script src="{% static 'assets/js/dependent_dropdown.js'%}"></script>
+    <link href="{% static 'assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css'%}" 
+</head>
+
+<body>
+    <style>
+        .accordion-button-custom {
+            background: none;
+            border: none;
+            padding-right: 1rem;
+            font-size: .75rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .form-group {
+            padding: 10px 10px;
+            /* Adjust padding values as needed */
+            margin-bottom: 10px;
+            /* Add spacing between form groups */
+        }
+
+        .form-group:last-child {
+            border-bottom: none;
+            /* Remove underline for the last form group */
+        }
+
+        .btn {
+            border-bottom: 2px solid none;
+            /* Underline for buttons */
+            transition: all 0.2s ease-in-out;
+            /* Smooth hover effect */
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            /* Add slight hover elevation */
+        }
+
+        .supersubmenu-container {
+            margin-left: 20px;
+        }
+
+        .supersubmenu-item {
+            margin: 5px 0;
+        }
+
+        #imagePreview {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="navbar-header bhagwa">
+                <div class="d-flex">
+                    <!-- logo -->
+                    <div class="navbar-brand-box">
+                        <a href="{% url 'couplers:admin-dashboard' %}" class="logo">
+                            <span class="logo-sm pe-2">
+                                <img src="{% static 'assets/images/scholarByte.png'%}" alt="" height="40">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="{% static 'assets/images/logo_rama.png'%}" alt="" height="56">
+                            </span>
+                        </a>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect"
+                            id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+                    <div class="dropdown d-inline-block profile">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user" src="{% static 'assets/images/jack.png' %}"
+                                alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1">{{ user.first_name }}</span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <div class="px-3 py-2 text-center">
+                                <img class="profile-summary-image rounded-circle mb-2"
+                                    src="{% static 'assets/images/jack.png' %}" alt="">
+                                <p class="mb-1 fw-bold">{{ user.first_name }} {{ user.last_name }}</p>
+                                <p class="mb-1 small text-muted">User ID: {{ user.id }}</p>
+                                <p class="mb-1 small text-muted">Registered since {{ user.date_joined }}</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="d-flex justify-content-around p-3">
+                                <a href="#" class="btn btn-primary btn-sm">Profile</a>
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'couplers:logout' %}" class="btn btn-secondary btn-sm">Sign out</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </header>
+        <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li>
+                            <a href="javascript:void(0);"
+                                class="fw-bold waves-effect sidebar-link d-flex justify-content-between align-items-center"
+                                data-bs-toggle="collapse" data-bs-target="#admin-submenu" aria-expanded="false"
+                                aria-controls="pages">
+                                <div>
+                                    <i class="bx bx-home"></i>
+                                    <span key="t-dashboards">Landing Page</span>
+                                </div>
+                                <i class="fa fa-chevron-left collapse-chevron"></i>
+                            </a>
+                            <ul class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#accordionExample"
+                                id="admin-submenu">
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_products_list' %}">
+                                        Products List
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_modules_list' %}">
+                                        Module List
+                                    </a>
+                                </li>
+                                
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_banner_list' %}">
+                                        Banner Slider List
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_banner_text_list' %}">
+                                        Banner Text List
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_about_us_list' %}">
+                                        About Us Section
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_counter_list' %}">
+                                        Counter section Text
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_items_list' %}">
+                                        Counter Section Items
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_services_list' %}">
+                                        Services  Heading
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:services_items_list' %}">
+                                        Services Items 
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:features_list' %}">
+                                        Features Heading 
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:features_items_list' %}">
+                                        Features Items 
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:team_section_list' %}">
+                                        Team Heading 
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_team_list' %}">
+                                        Team List
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_testimonial_list' %}">
+                                        Testimonial Heading
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_testimonial_items_list' %}">
+                                        Testimonial Items
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:connect_list' %}">
+                                        Connect Us Enquirey
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:settings_list' %}">
+                                        SETTINGS
+                                    </a>
+                                </li>
+                                
+                                <li class="sidebar-item">
+                                    <a href="{% url 'couplers:admin_document_list' %}">
+                                        Documents List
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+                    {% block content %}
+                    {% endblock content %}
+
+                    {% block form-content %}
+                    {% endblock form-content %}
+
+                    {% block table-content %}
+                    {% endblock table-content %}
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!--modal-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this row?
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteForm" method="post" action="">
+                        {% csrf_token %}
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteModal = document.getElementById('deleteModal');
+            deleteModal.addEventListener('show.bs.modal', function (event) {
+                var button = event.relatedTarget;
+                var url = button.getAttribute('data-url');
+                var form = deleteModal.querySelector('#deleteForm');
+                form.setAttribute('action', url);
+            });
+        });
+
+    </script>
+    <script src="{% static 'assets/js/jquery360.min.js' %}"></script>
+    <script src="{% static 'assets/js/npm_chart.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- dependent dropdown scripts -->
+    <script src="{% static 'assets/js/dependent_dropdown.js'%}"></script>
+    <!-- jquery js -->
+    <script src="{% static 'assets/libs/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'assets/libs/metismenu/metisMenu.min.js'%}"></script>
+    <script src="{% static 'assets/libs/simplebar/simplebar.min.js'%}"></script>
+    <script src="{% static 'assets/libs/node-waves/waves.min.js'%}"></script>
+    <!-- Required datatable js -->
+    <script src="{% static 'assets/libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+    <!-- Responsive examples -->
+    <script src="{% static 'assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js'%}"></script>
+    <script src="{% static 'assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js'%}"></script>
+    <!-- Buttons examples -->
+    <script src="{% static 'assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'assets/libs/jszip/jszip.min.js' %}"></script>
+    <script src="{% static 'assets/libs/pdfmake/build/pdfmake.min.js' %}"></script>
+    <script src="{% static 'assets/libs/pdfmake/build/vfs_fonts.js' %}"></script>
+    <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+    <script src="{% static 'assets/libs/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+    <!-- Responsive examples -->
+    <script src="{% static 'assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+    <!-- Datatable init js -->
+    <script src="{% static 'assets/js/pages/datatables.init.js'%}"></script>
+    <!-- apexcharts -->
+    <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js'%}"></script>
+    <!-- Saas dashboard init -->
+    <script src="{% static 'assets/js/pages/saas-dashboard.init.js'%}"></script>
+    <script src="{% static 'assets/js/app.js'%}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap_datepicker.min.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const firstNameInput = document.getElementById('id_first_name');
+            const lastNameInput = document.getElementById('id_last_name');
+            const employeeNameInput = document.getElementById('id_employee_name');
+            const imageInput = document.getElementById('{{ profile_form.user_image.auto_id }}');
+            const imagePreview = document.getElementById('imagePreview');
+
+            function updateEmployeeName() {
+                const firstName = firstNameInput.value;
+                const lastName = lastNameInput.value;
+                const empNo = '654377'; // You might want to generate this dynamically
+                employeeNameInput.value = `${firstName} ${lastName} | Emp No : (${empNo}) | Father Name : `;
+            }
+
+            firstNameInput.addEventListener('input', updateEmployeeName);
+            lastNameInput.addEventListener('input', updateEmployeeName);
+
+            // Image preview functionality
+            imageInput.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        imagePreview.style.backgroundImage = `url('${e.target.result}')`;
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+
+        const savedMenuKey = localStorage.getItem('sidebarMenuKey');
+        if (savedMenuKey && menuData[savedMenuKey]) {
+            menuContent.innerHTML = menuData[savedMenuKey];
+        } else {
+            // Set default menu content if no state is saved
+            const defaultMenu = 'system-settings'; // Set this to the default menu you want to show
+            if (menuData[defaultMenu]) {
+                menuContent.innerHTML = menuData[defaultMenu];
+            }
+        }
+
+        function initializeChevronToggle() {
+            $('[data-bs-toggle="collapse"]').each(function () {
+                var target = $(this).attr('data-bs-target');
+                $(target).on('show.bs.collapse', function () {
+                    $(this).prev('a').find('.collapse-chevron').removeClass('fa-chevron-left').addClass('fa-chevron-down');
+                }).on('hide.bs.collapse', function () {
+                    $(this).prev('a').find('.collapse-chevron').removeClass('fa-chevron-down').addClass('fa-chevron-left');
+                });
+            });
+        }
+        initializeChevronToggle();
+    </script>
+</body>
+
+</html>

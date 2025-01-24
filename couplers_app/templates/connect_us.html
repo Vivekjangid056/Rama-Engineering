@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block table-content %}
+
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18"> Connect Us </h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <a href="{% url 'couplers:super-admin-login' %}">
+                        <li class="breadcrumb-item active">home</li>
+                    </a>
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+{% if connectUs %}
+
+<div class="row">
+    <div class="col-12">
+        {% comment %} <div class="d-flex justify-content-end">
+
+            <!--                                    List of Institutes                                 -->
+
+            <a style="text-decoration:none; color:white" href="{% url 'couplers:admin_document_create' %}"><button
+                    class="btn btn-md btn-primary"><i class="fa fa-plus"></i> create</button></a>
+        </div> {% endcomment %}
+        <div class="card">
+            <div class="card-body">
+
+                <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>subject</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for doc in connectUs %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{doc.first_name}}{{doc.last_name}}</td>
+                            <td>{{doc.email}}</td>
+                            <td>{{doc.subject}}</td>
+                            
+                            <td>
+                                <a href="{% url 'couplers:connect_view' doc.pk %}"
+                                    class="btn btn-sm btn-primary" style="padding:0.001rem"  title="View">
+                                     <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-sm btn-danger"  
+style="padding:0.001rem" title="Delete" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal"
+                                    data-url="{% url 'couplers:connect_delete' doc.pk %}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="row">
+    <div class="col-12">
+        {% comment %} <div class="d-flex justify-content-end">
+
+            <!--                                    List of Institutes                                 -->
+
+            <a style="text-decoration:none; color:white" href="{% url 'couplers:admin_document_create' %}"><button
+                    class="btn btn-md btn-primary"><i class="fa fa-plus"></i> create</button></a>
+        </div> {% endcomment %}
+        <div class="card">
+            <div class="card-body">
+
+                <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>subject</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock table-content %}

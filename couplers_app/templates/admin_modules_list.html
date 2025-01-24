@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block table-content %}
+
+
+<!-- start page title -->
+<div class="row">
+    <div class="col-12">
+        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <h4 class="mb-sm-0 font-size-18">Data Tables</h4>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <a href="{% url 'couplers:super-admin-login' %}">
+                        <li class="breadcrumb-item active">home</li>
+                    </a>
+                    <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end page title -->
+{% if modules %}
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        {% include "alerts.html" %}
+    </div>
+    <div class="col-12">
+        <div class="d-flex justify-content-end">
+
+            <!--                                    List of Institutes                                 -->
+
+            <a style="text-decoration:none; color:white" href="{% url 'couplers:admin_modules_create' %}"><button
+                    class="btn btn-md btn-primary"><i class="fa fa-plus"></i> create</button></a>
+        </div>
+        <div class="card">
+            <div class="card-body">
+
+                <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Module Name</th>
+                            <th>Image</th>
+                            <th>Active/Deactive</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for module in modules %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{module.name}}</td>
+                            <td>
+                                {% if module.module_image %}
+                                    <img src="{{ module.module_image.url }}" alt="{{ module.name }}" style="width: 100px; height: auto;">
+                                {% else %}
+                                    No image available
+                                {% endif %}
+                            </td>
+                            <td>{{module.is_active}}</td>
+                            <td>
+                                <a href="{% url 'couplers:admin_modules_update' module.pk %}"
+                                    class="btn btn-sm btn-primary" style="padding:0.001rem"  title="Edit">
+                                     <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <button class="btn btn-sm btn-danger"  
+style="padding:0.001rem" title="Delete" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal"
+                                    data-url="{% url 'couplers:admin_modules_delete' module.pk %}">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-end">
+
+            <!--                                    List of Institutes                                 -->
+
+            <a style="text-decoration:none; color:white" href="{% url 'couplers:admin_modules_create' %}"><button
+                    class="btn btn-md btn-primary"><i class="fa fa-plus"></i> create</button></a>
+        </div>
+        <div class="card">
+            <div class="card-body">
+
+                <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Module Name</th>
+                            <th>Image</th>
+                            <th>Active/Deactive</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock table-content %}

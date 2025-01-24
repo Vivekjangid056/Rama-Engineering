@@ -1,68 +1,166 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
-# Create your models here.
-class Projects(models.Model):
+class AdminProducts(models.Model):
     name = models.CharField(max_length=200)
-    place = models.CharField(max_length=200)
-    description = models.CharField(max_length=400)
-    date= models.DateField()
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    description = models.TextField(max_length=2000)
+    product_image = models.ImageField(upload_to='product_images/', blank=True, null=True)
+    is_active = models.BooleanField(default=False)
 
-    def __str__(self):
-        return f"{self.name} at {self.place}"
-
-
-class Services(models.Model):
+class AdminModules(models.Model):
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    description = models.TextField(max_length=2000)
+    module_image = models.ImageField(upload_to='module_images/', blank=True, null=True)
+    is_active = models.BooleanField(default=False)
 
-    def __str__(self):
-        return f"{self.name}"
-
-class Team(models.Model):
+class AdminTeam(models.Model):
     name = models.CharField(max_length=200)
     designation = models.CharField(max_length=200)
-    instagram = models.CharField(max_length=200, null=True, blank=True)
-    facebook = models.CharField(max_length=200, null=True, blank=True)
-    twitter = models.CharField(max_length=200, null=True, blank=True)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    image = models.ImageField(upload_to='team_images/', blank=True, null=True)
+    is_active = models.BooleanField(default=False)
 
-    def __str__(self):
-        return f"{self.name} as {self.designation}"
-
-class Products(models.Model):
-    name = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    product_image = models.ImageField(upload_to='images/', blank=True, null=True)
-
-    def __str__(self):
-        return f"{self.name}"
-
-class Clients(models.Model):
-    name = models.CharField(max_length=200)
-    profession = models.CharField(max_length=200)
-    reviews = models.CharField(max_length=400)
-
-    def __str__(self):
-        return f"{self.name} from {self.place}"
-
-class Banner(models.Model):
+class AdminBannerText(models.Model):
     heading = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    sub_heading = models.CharField(max_length=200)
+    # banner_image = models.ImageField(upload_to='banner_images/')
+    
+class AdminAboutUsSection(models.Model):
+    
+    MEDIA_TYPE =[
+        ('image', 'Image'),
+        ('video', 'Video'),
+        ('you_tube_link', 'You Tube Link' )
+    ]
+    
+    
+    heading = models.CharField(max_length=200)
+    sub_heading = models.TextField()    
+    main_content = models.TextField()
+    media_type = models.CharField(max_length=225 , choices=MEDIA_TYPE)
+    link = models.CharField(max_length=225 , blank=True,null=True)
+    about_us_media = models.FileField(upload_to='about_us_section/', null=True, blank=True)
+
+class AdminBannerSlider(models.Model):
+    name = models.CharField(max_length=200)
+    banner_image = models.ImageField(upload_to='banner_images/')
+    is_active = models.BooleanField(default=False)
+    
+
+class AdminAddress(models.Model):
+    company_name = models.CharField(max_length=200)
+    office_address = models.TextField(max_length=500)
+    mape_url = models.CharField(max_length=1000)
+    mobile_number = models.CharField( max_length=12, validators=[ RegexValidator(regex='^\d{10,12}$', message='Mobile number must be 10 to 12 digits.') ])
+    email = models.EmailField(max_length=200)
+
+
+class AdminLegalDocuments(models.Model):
+    
+    TandC = 'TandC'
+    PrivacyPolicy = 'PrivacyPolicy'
+    EULA = 'EULA'
+    
+
+    ROLE_CHOICES = [
+        (TandC, 'TandC'),
+        (PrivacyPolicy, 'PrivacyPolicy'),
+        (EULA, 'EULA'),
+    ]
+    
+    document_title = models.CharField(max_length=220)
+    document_type = models.CharField(max_length=20 , choices=ROLE_CHOICES)
+    heading = models.CharField(max_length=225)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.document_title
+    
+class AdminCounterSection(models.Model):
+    heading = models.CharField(max_length=225)    
+    sub_heading = models.CharField(max_length=225, null=True,blank=True)
+    
+    def __str__(self):
+        return self.heading
+    
+class CounterItems(models.Model):
+    counter_number = models.CharField(max_length=225, null=True, blank=True)
+    counter_text = models.CharField(max_length=225, null=True, blank=True)
+    counter_icon = models.FileField(upload_to='counter_section/', null=True, blank=True)
 
     def __str__(self):
-        return f"{self.heading}"
-
-class AboutUs(models.Model):
-    description = models.CharField(max_length=1000)
-    number_of_clients = models.IntegerField()
-    number_of_projects = models.IntegerField()
-    image = models.ImageField(upload_to='images/', blank=True, null=True)
+        return f"{self.counter_text} ({self.counter_number})"
+    
+class ServicesSection(models.Model):
+    heading = models.CharField(max_length=225)    
+    sub_heading = models.TextField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.heading
+    
+class ServicesItems(models.Model):
+    title = models.CharField(max_length=225, null=True, blank=True)
+    content = models.CharField(max_length=225, null=True, blank=True)
+    icon = models.FileField(upload_to='counter_section/', null=True, blank=True)
 
     def __str__(self):
-        return f"{self.number_of_clients} clients and {self.number_of_projects} has done"
+        return f"{self.title} ({self.content})"
+    
+class FeaturesSection(models.Model):
+    heading = models.CharField(max_length=225)    
+    sub_heading = models.TextField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.heading
+    
+class FeaturesItems(models.Model):
+    title = models.CharField(max_length=225, null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
+    icon = models.FileField(upload_to='counter_section/', null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.title} ({self.content})"
+    
+class TeamSection(models.Model):
+    heading = models.CharField(max_length=225)    
+    sub_heading = models.TextField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.heading
+    
+class TestimonialHeading(models.Model):
+    heading = models.CharField(max_length=225)    
+    sub_heading = models.TextField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.heading
+    
+class TestimonialItems(models.Model):
+    name = models.CharField(max_length=225, null=True, blank=True)
+    designation = models.CharField(max_length=225, null=True, blank=True)
+    content = models.TextField(null=True, blank=True)
+    image = models.FileField(upload_to='testimonial/', null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.title} ({self.content})"
+    
+class ContactUs(models.Model):
+    first_name = models.CharField(max_length=225)
+    last_name = models.CharField(max_length=225,null=True, blank=True)
+    email = models.EmailField(max_length=225)
+    subject = models.CharField(max_length=225,null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
+    
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.subject}"
+    
+class Settings(models.Model):
+    phone_number = models.CharField(max_length=12, null=True, blank=True)
+    email_address = models.EmailField(null=True, blank=True)
+    address = models.CharField(max_length=225,null=True,blank=True)
+    content = models.TextField(null=True,blank=True)
+    footer_logo = models.FileField(upload_to='logo/',null=True,blank=True)
 
 class EnquiryEmail(models.Model):
     email = models.EmailField(max_length=200)
@@ -77,6 +175,3 @@ class EnquiryEmail(models.Model):
     class Meta:
         verbose_name = "EnquiryEmail Model"
         verbose_name_plural = "EnquiryEmail Models"
-
-    def __str__(self):
-        return self.email

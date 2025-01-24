@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'couplers_app'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,8 +83,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Rama_Engineering',
         'USER': 'postgres',
-        'PASSWORD': 'm2@43TSB9&',
-        'HOST': '122.160.154.127'
+        'PASSWORD': 'Vivek@056',
+        'HOST': 'localhost'
     }
 }
 
@@ -141,7 +145,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SESSION_COOKIE_AGE = 18000000  # 300 minutes  5 houres
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_SAVE_EVERY_REQUEST = True
 
+LOGIN_URL = 'couplers:super-admin-login'
 
 
 # custom 

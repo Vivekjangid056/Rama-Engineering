@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block content %}
+<h2>{% if pk %}Edit Document: {{ document.document_title }}{% else %}Create Document{% endif %}</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.document_title |as_crispy_field }}
+    {{ form.document_type |as_crispy_field }}
+    {{ form.heading |as_crispy_field }}
+    {{ form.content |as_crispy_field }}
+    <button type="submit" class= "btn btn-info w-100">{% if pk %}Update Document{% else %}Create Document{% endif %}</button>
+</form>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

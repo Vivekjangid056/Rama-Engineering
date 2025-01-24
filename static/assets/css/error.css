@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+:root {
+  --bodyFonts: "Roboto Flex", sans-serif;
+  --mainColor: #005e82;
+  --redColor: #EC272F;
+  --titleColor: #131841;
+  --bodyColor: #555555;
+  --whiteColor: #ffffff;
+  --fontSize: 16px;
+  --transition: 0.5s;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--bodyColor);
+  font-weight: 400;
+  font-size: var(--fontSize);
+  font-family: var(--bodyFonts);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: var(--bodyColor);
+  margin-bottom: 10px;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.hidden {
+  display: none;
+}
+button {
+  border: 0;
+  background: #006af7;
+  color: white;
+  padding: 9px 15px;
+  border-radius: 7px;
+  transition: 0.2s;
+  display: block;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+a {
+  display: inline-block;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  text-decoration: none;
+  color: var(--mainColor);
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+button {
+  outline: 0;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: var(--titleColor);
+  line-height: 1.4;
+  font-family: var(--headerFonts);
+}
+
+h3 {
+  font-size: 22px;
+}
+
+
+.errer_code {
+  font-size: clamp(24px, 20vw, 230px);
+  color: #006af7;
+  font-weight: bold;
+}
+.text-color {
+  color: #006af7;
+}
+.internal-error h1 {
+  margin: 0 0 26px;
+}
+.internal-error p {
+  margin-bottom: 0;
+}
+.internal-error a {
+  text-decoration: underline;
+}
+.terms_notice_des h2 {
+  font-size: clamp(20px, 3vw, 25px);
+  color: #006af7;
+  font-weight: bold;
+}
+
+.terms_notice_des h3 {
+  font-size: clamp(20px, 3vw, 20px);
+  font-weight: 600;
+}
+
+.terms_notice_des .morestyle h3 {
+  color: #747474;
+}
+
+.morestyle ul {
+  list-style: lower-alpha;
+}
+
+.terms_notice_des p{
+  padding: 0px 0 0;
+  font-size: 16px;
+  color: #9a999d;
+}
+.morestyle ul li {
+  padding: 10px 0 0;
+  font-size: 16px;
+  color: #9a999d;
+}
+
+.morestyle ul li span {
+  color: #000;
+  font-weight: 700;
+}
+
+
+.active_click {
+  background-image: url(../images/chevron-down.svg);
+  padding-right: 27px !important;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #fff;
+  color: #006af7;
+  font-weight: bold;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.form-switch .form-check-input {
+ height: 25px; width: 45px; outline: none; box-shadow: none;
+}
+
+.form-check-input:checked {
+  background-color: #87a509;
+  border-color: #87a509;
+}
+
+.btn-outline-secondary {
+  border-color: #ebebeb !important;
+}
+
+.more-text table.table tr th, .more-text table.table tr td {
+  font-size: 14px; padding: 10px 5px;
+}
+
