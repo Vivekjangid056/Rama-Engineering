@@ -146,112 +146,97 @@
                 <div id="sidebar-menu">
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li>
-                            <a href="javascript:void(0);"
-                                class="fw-bold waves-effect sidebar-link d-flex justify-content-between align-items-center"
-                                data-bs-toggle="collapse" data-bs-target="#admin-submenu" aria-expanded="false"
-                                aria-controls="pages">
-                                <div>
-                                    <i class="bx bx-home"></i>
-                                    <span key="t-dashboards">Landing Page</span>
-                                </div>
-                                <i class="fa fa-chevron-left collapse-chevron"></i>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_products_list' %}">
+                                Products List
                             </a>
-                            <ul class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#accordionExample"
-                                id="admin-submenu">
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_products_list' %}">
-                                        Products List
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_modules_list' %}">
-                                        Module List
-                                    </a>
-                                </li>
-                                
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_banner_list' %}">
-                                        Banner Slider List
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_banner_text_list' %}">
-                                        Banner Text List
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_about_us_list' %}">
-                                        About Us Section
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_counter_list' %}">
-                                        Counter section Text
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_items_list' %}">
-                                        Counter Section Items
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_services_list' %}">
-                                        Services  Heading
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:services_items_list' %}">
-                                        Services Items 
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:features_list' %}">
-                                        Features Heading 
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:features_items_list' %}">
-                                        Features Items 
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:team_section_list' %}">
-                                        Team Heading 
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_team_list' %}">
-                                        Team List
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_testimonial_list' %}">
-                                        Testimonial Heading
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_testimonial_items_list' %}">
-                                        Testimonial Items
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:connect_list' %}">
-                                        Connect Us Enquirey
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:settings_list' %}">
-                                        SETTINGS
-                                    </a>
-                                </li>
-                                
-                                <li class="sidebar-item">
-                                    <a href="{% url 'couplers:admin_document_list' %}">
-                                        Documents List
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_modules_list' %}">
+                                Module List
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_banner_list' %}">
+                                Banner Slider List
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_banner_text_list' %}">
+                                Banner Text List
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_about_us_list' %}">
+                                About Us Section
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_counter_list' %}">
+                                Counter section Text
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_items_list' %}">
+                                Counter Section Items
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_services_list' %}">
+                                Services  Heading
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:services_items_list' %}">
+                                Services Items 
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:features_list' %}">
+                                Features Heading 
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:features_items_list' %}">
+                                Features Items 
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:team_section_list' %}">
+                                Team Heading 
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_team_list' %}">
+                                Team List
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_testimonial_list' %}">
+                                Testimonial Heading
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_testimonial_items_list' %}">
+                                Testimonial Items
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:connect_list' %}">
+                                Connect Us Enquirey
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:settings_list' %}">
+                                SETTINGS
+                            </a>
+                        </li>
+                        
+                        <li class="sidebar-item">
+                            <a href="{% url 'couplers:admin_document_list' %}">
+                                Documents List
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -342,8 +327,6 @@
     <script src="{% static 'assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
     <!-- Datatable init js -->
     <script src="{% static 'assets/js/pages/datatables.init.js'%}"></script>
-    <!-- apexcharts -->
-    <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js'%}"></script>
     <!-- Saas dashboard init -->
     <script src="{% static 'assets/js/pages/saas-dashboard.init.js'%}"></script>
     <script src="{% static 'assets/js/app.js'%}"></script>

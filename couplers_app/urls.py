@@ -5,7 +5,7 @@ app_name = 'couplers'
 
 urlpatterns = [
     path('', home, name = "home"),
-    path('hello-arun', admin_login, name='super-admin-login'),
+    path('admin/', admin_login, name='super-admin-login'),
     path('dashboard/', admin_dashboard, name='admin-dashboard'),
     path('logout/', logout_view, name='logout'),
     path('thank-you', thank_you, name='thank_you'),
@@ -17,11 +17,6 @@ urlpatterns = [
     path('modules/add/', AdminModulesCreateView.as_view(), name='admin_modules_create'),
     path('modules/<int:pk>/edit/', AdminModulesUpdateView.as_view(), name='admin_modules_update'),
     path('modules/<int:pk>/delete/', AdminModulesDeleteView.as_view(), name='admin_modules_delete'),
-
-    path('banners/', AdminBannerListView.as_view(), name='admin_banner_list'),
-    path('banners/add/', AdminBannerCreateView.as_view(), name='admin_banner_create'),
-    path('banners/<int:pk>/edit/', AdminBannerUpdateView.as_view(), name='admin_banner_update'),
-    path('banners/<int:pk>/delete/', AdminBannerDeleteView.as_view(), name='admin_banner_delete'),
 
     path('address/', AdminAddressListView.as_view(), name='admin_address_list'),
     path('address/add/', AdminAddressCreateView.as_view(), name='admin_address_create'),

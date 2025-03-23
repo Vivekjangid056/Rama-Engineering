@@ -3,7 +3,10 @@ from django.core.validators import RegexValidator
 
 class AdminProducts(models.Model):
     name = models.CharField(max_length=200)
-    description = models.TextField(max_length=2000)
+    product_heading = models.CharField(max_length=200)
+    description_for_detailed_page1 = models.TextField(max_length=500)
+    description_for_detailed_page2 = models.TextField(max_length=500)
+    description_for_detailed_page3 = models.TextField(max_length=500)
     product_image = models.ImageField(upload_to='product_images/', blank=True, null=True)
     is_active = models.BooleanField(default=False)
 
@@ -22,29 +25,17 @@ class AdminTeam(models.Model):
 class AdminBannerText(models.Model):
     heading = models.CharField(max_length=200)
     sub_heading = models.CharField(max_length=200)
-    # banner_image = models.ImageField(upload_to='banner_images/')
+    banner_image = models.ImageField(upload_to='banner_images/', null=True)
     
 class AdminAboutUsSection(models.Model):
-    
-    MEDIA_TYPE =[
-        ('image', 'Image'),
-        ('video', 'Video'),
-        ('you_tube_link', 'You Tube Link' )
-    ]
-    
-    
     heading = models.CharField(max_length=200)
-    sub_heading = models.TextField()    
-    main_content = models.TextField()
-    media_type = models.CharField(max_length=225 , choices=MEDIA_TYPE)
-    link = models.CharField(max_length=225 , blank=True,null=True)
-    about_us_media = models.FileField(upload_to='about_us_section/', null=True, blank=True)
-
-class AdminBannerSlider(models.Model):
-    name = models.CharField(max_length=200)
-    banner_image = models.ImageField(upload_to='banner_images/')
-    is_active = models.BooleanField(default=False)
-    
+    sub_heading = models.TextField()
+    service1 = models.CharField(max_length=26, null=True, blank=True)
+    service2 = models.CharField(max_length=26, null=True, blank=True)
+    service3 = models.CharField(max_length=26, null=True, blank=True)
+    service4 = models.CharField(max_length=26, null=True, blank=True)
+    about_us_media = models.ImageField(upload_to='about_us_section/', null=True, blank=True)
+   
 
 class AdminAddress(models.Model):
     company_name = models.CharField(max_length=200)
@@ -80,6 +71,7 @@ class AdminLegalDocuments(models.Model):
 class AdminCounterSection(models.Model):
     heading = models.CharField(max_length=225)    
     sub_heading = models.CharField(max_length=225, null=True,blank=True)
+    
     
     def __str__(self):
         return self.heading

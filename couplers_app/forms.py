@@ -19,11 +19,6 @@ class AdminTeamForm(forms.ModelForm):
         model = AdminTeam
         fields = "__all__"
 
-
-class AdminBannerSliderForm(forms.ModelForm):
-    class Meta:
-        model = AdminBannerSlider
-        fields = "__all__"
         
 class AdminBannerTextForm(forms.ModelForm):
     class Meta:

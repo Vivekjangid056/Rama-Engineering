@@ -1,640 +1,1303 @@
 {% load static %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <!-- Meta Tags -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="keywords" content="Site keywords here">
+		<meta name="description" content="">
+		<meta name='copyright' content=''>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<!-- Title -->
+        <title>Rama Engineering</title>
+		
+		<!-- Favicon -->
+        <link rel="icon" href="img/favicon.png">
+		
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
-<!DOCTYPE html>
-<html lang="en">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'assets/css_home/bootstrap.min.css' %}">
+		<!-- Nice Select CSS -->
+		<link rel="stylesheet" href="{% static 'assets/css_home/nice-select.css' %}">
+		<!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css_home/font-awesome.min.css' %}">
+		<!-- icofont CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css_home/icofont.css' %}">
+		<!-- Slicknav -->
+		<link rel="stylesheet" href="{% static 'assets/css_home/slicknav.min.css' %}">
+		<!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css_home/owl-carousel.css' %}">
+		<!-- Datepicker CSS -->
+		<link rel="stylesheet" href="{% static 'assets/css_home/datepicker.css' %}">
+		<!-- Animate CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css_home/animate.min.css' %}">
+		<!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css_home/magnific-popup.css' %}">
+		
+		<!-- Medipro CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css_home/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css_home/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css_home/responsive.css' %}">
+		
+    </head>
+	<style>
+		/* Custom CSS for Contact Form Section */
+.contact-form-section {
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+}
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title> Scholar Byte </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scholarbyte Landing Template" />
-    <meta name="keywords"
-        content="ERP, school ERP,college ERP, student management, academic records, attendance tracking, timetable, examination, fees management, library management, parent portal">
-    <meta content="schloarbyte" name="Scholar Byte" />
+.contact-form-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
 
-    
+.contact-form-section p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
 
-    <!--* favicon -->
-    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
-    <!--* WOW Animation -->
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate-new.css' %}">
-    <!--* Bootstrap css -->
-    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-    <!-- Slick Slider -->
-    <link href="{% static 'assets/css/slick.css' %}" rel="stylesheet" type="text/css" />
-    <!--* Icons -->
-    <link href="{% static 'assets/css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'assets/css/line-awesome.min.css' %}" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome-new.min.css' %}">
-    <!--* Main css File -->
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/index-styles.css' %}">
-    <link href="{% static 'assets/css/default-color.css' %}" rel="stylesheet" type="text/css" id="theme-color" />
+.contact-form {
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+}
 
-    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
-    
+.contact-form .form-control {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+}
 
-</head>
+.contact-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 
-<body>
-    <!--* box-wrapper -->
-    <div class="box-wrapper">
-        <!--* Loader -->
-        <div id="preloader">
-            <div id="status">
-                <div class="d-loader">
-                    <img src={% static 'assets/images/dcode-loader.gif' %} alt="schloarbyte" class="img-fluid">
+.contact-form textarea.form-control {
+    resize: none; /* Disable resizing */
+}
+
+.contact-form .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Slider CSS */
+
+
+/* Slider container */
+.projects-slider-container {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	padding: 5px 0;
+}
+
+/* Slider wrapper */
+.projects-slider {
+	display: flex;
+	transition: transform 0.8s ease;
+	padding: 10px 0;
+}
+
+/* Individual project card */
+.projects-slider .single-project {
+	flex: 0 0 calc(25% - 20px);  /* Exactly 4 cards with small gap */
+	margin-right: 20px;
+	box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1199px) {
+	.projects-slider .single-project {
+		flex: 0 0 calc(33.333% - 20px);  /* 3 cards for medium-large screens */
+	}
+}
+
+@media (max-width: 991px) {
+	.projects-slider .single-project {
+		flex: 0 0 calc(50% - 20px);  /* 2 cards for medium screens */
+	}
+}
+
+@media (max-width: 767px) {
+	.projects-slider .single-project {
+		flex: 0 0 calc(100% - 20px);  /* 1 card for small screens */
+	}
+}
+
+/* Pagination styling */
+.slider-pagination {
+	margin-top: 20px;
+}
+
+.pagination-dot {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-color: #ddd;
+	border-radius: 50%;
+	margin: 0 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.pagination-dot.active {
+	background-color: #007bff;
+}
+
+/* Pause on hover */
+.projects-slider-container:hover .projects-slider {
+	animation-play-state: paused;
+}
+
+
+
+
+	</style>
+    <body>
+	
+		<!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+
+                <div class="indicator"> 
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
                 </div>
             </div>
         </div>
-        <!--* Loader -->
-        <!--* Nav Bar -->
-        <header id="master-head" class="navbar menu-absolute menu-center menu-light">
-            <div class="container-fluid">
-                <div id="main-logo" class="logo-container">
-                    <a class="logo" href="#">
-                        <img src="{% static 'assets/images/logo_rama.png' %}" class="logo-light img-fluid" alt="scholarByte">
-                    </a>
-                </div>
-                <div class="menu-toggle-btn">
-                    <!--* Mobile menu toggle-->
-                    <a class="navbar-toggle">
-                        <div class="burger-lines">
+	
+		<!-- Header Area -->
+		<header class="header">
+			<div class="header-inner">
+				<div class="container">
+					<div class="inner">
+						<div class="row align-items-center">
+							<!-- Logo (Left Aligned) -->
+							<div class="col-lg-3 col-md-3 col-6">
+								<div class="logo">
+									<a href="index.html">
+										<img src="{% static 'assets/images/logo.png' %}" alt="Logo">
+									</a>
+								</div>
+							</div>
+		
+							<!-- Navigation (Centered) -->
+							<div class="col-lg-6 col-md-6 d-none d-md-block">
+								<div class="main-menu">
+									<nav class="navigation">
+										<ul class="nav menu d-flex justify-content-center">
+											<li><a href="#">Home</a></li>
+											<li><a href="#">Doctors</a></li>
+											<li><a href="#">Services</a></li>
+											<li><a href="contact.html">Contact Us</a></li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+		
+							<!-- Login Button (Right Aligned) -->
+							<div class="col-lg-3 col-md-3 col-6 d-flex justify-content-end">
+								<a href="login.html" class="btn btn-primary">Login</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- End Header Area -->
+		
+		<!-- Slider Area -->
+		<section class="slider">
+			<div class="hero-slider">
+				<!-- Start Single Slider -->
+				<div class="single-slider" style="background-image: url('{% static 'assets/images/slider2.jpg' %}');">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text">
+									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End Single Slider -->
+				<!-- Start Single Slider -->
+				<div class="single-slider" style="background-image:url('{% static 'assets/images/slider.jpg' %}');">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text">
+									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Start End Slider -->
+				<!-- Start Single Slider -->
+				<div class="single-slider" style="background-image:url('{% static 'assets/images/slider3.jpg' %}');">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-7">
+								<div class="text">
+									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End Single Slider -->
+			</div>
+		</section>
+		<!--/ End Slider Area -->
+
+		<!-- Start Feautes -->
+		<section class="about-us section">
+			<div class="container">
+				<div class="row align-items-center">
+					<!-- Left Side Image -->
+					<div class="col-lg-6 col-md-12">
+						<div class="about-image">
+							<img src="{% static 'assets/images/about-us.jpg' %}" alt="About Us" class="img-fluid rounded shadow-lg">
+						</div>
+					</div>
+		
+					<!-- Right Side Content -->
+					<div class="col-lg-6 col-md-12">
+						<div class="about-content">
+							<h2 class="mb-4">About Our Services</h2>
+							<p class="lead">
+								We are dedicated to providing exceptional healthcare services for you and your family. 
+								Our team of experienced professionals is committed to delivering high-quality treatment 
+								with compassion and care.
+							</p>
+							<ul class="about-list">
+								<li><i class="icofont-check-circled"></i> 24/7 Emergency Assistance</li>
+								<li><i class="icofont-check-circled"></i> Highly Qualified Doctors</li>
+								<li><i class="icofont-check-circled"></i> Modern Medical Equipment</li>
+								<li><i class="icofont-check-circled"></i> Affordable Healthcare Services</li>
+							</ul>
+							<a href="contact.html" class="btn btn-primary mt-3">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!--/ End Feautes -->
+		
+		<!-- Start Fun-facts -->
+		<div id="fun-facts" class="fun-facts section overlay">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-12">
+						<!-- Start Single Fun -->
+						<div class="single-fun">
+							<i class="icofont icofont-home"></i>
+							<div class="content">
+								<span class="counter">3468</span>
+								<p>Hospital Rooms</p>
+							</div>
+						</div>
+						<!-- End Single Fun -->
+					</div>
+					<div class="col-lg-3 col-md-6 col-12">
+						<!-- Start Single Fun -->
+						<div class="single-fun">
+							<i class="icofont icofont-user-alt-3"></i>
+							<div class="content">
+								<span class="counter">557</span>
+								<p>Specialist Doctors</p>
+							</div>
+						</div>
+						<!-- End Single Fun -->
+					</div>
+					<div class="col-lg-3 col-md-6 col-12">
+						<!-- Start Single Fun -->
+						<div class="single-fun">
+							<i class="icofont-simple-smile"></i>
+							<div class="content">
+								<span class="counter">4379</span>
+								<p>Happy Patients</p>
+							</div>
+						</div>
+						<!-- End Single Fun -->
+					</div>
+					<div class="col-lg-3 col-md-6 col-12">
+						<!-- Start Single Fun -->
+						<div class="single-fun">
+							<i class="icofont icofont-table"></i>
+							<div class="content">
+								<span class="counter">32</span>
+								<p>Years of Experience</p>
+							</div>
+						</div>
+						<!-- End Single Fun -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/ End Fun-facts -->
+		
+		<!-- Start Why choose -->
+		<section class="products section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-title text-center">
+							<h2>Our Best-Selling Products</h2>
+							<p>Explore our range of high-quality healthcare products designed for your well-being.</p>
+						</div>
+					</div>
+				</div>
+		
+				<div class="row">
+					<!-- Product 1 -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="single-product shadow-sm p-3 text-center">
+							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 1" class="img-fluid rounded">
+							<h4 class="mt-3">Product Name 1</h4>
+						</div>
+					</div>
+		
+					<!-- Product 2 -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="single-product shadow-sm p-3 text-center">
+							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 2" class="img-fluid rounded">
+							<h4 class="mt-3">Product Name 2</h4>
+						</div>
+					</div>
+		
+					<!-- Product 3 -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="single-product shadow-sm p-3 text-center">
+							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 3" class="img-fluid rounded">
+							<h4 class="mt-3">Product Name 3</h4>
+						</div>
+					</div>
+		
+					<!-- Product 4 -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="single-product shadow-sm p-3 text-center">
+							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 4" class="img-fluid rounded">
+							<h4 class="mt-3">Product Name 4</h4>
+						</div>
+					</div>
+		
+					<!-- Product 5 -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="single-product shadow-sm p-3 text-center">
+							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 5" class="img-fluid rounded">
+							<h4 class="mt-3">Product Name 5</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!--/ End Why choose -->
+		
+<!-- Start Contact Form Section -->
+<section class="contact-form-section overlay" data-stellar-background-ratio="0.5" style="background-image: url('{% static 'assets/images/slider2.jpg' %}');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-12">
+                <div class="content text-center">
+                    <h2 class="text-white mb-4">Get in Touch with Us</h2>
+                    <p class="text-white mb-5">Have questions or need assistance? Fill out the form below, and we'll get back to you shortly.</p>
+                    <form class="contact-form bg-white p-5 rounded shadow-lg" action="#" method="post">
+                        <div class="row">
+                            <!-- Name Field -->
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group mb-4">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                </div>
+                            </div>
+                            <!-- Email Field -->
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group mb-4">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <!-- Phone Field -->
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group mb-4">
+                                    <input type="text" name="phone" class="form-control" placeholder="Your Phone Number" required>
+                                </div>
+                            </div>
+                            <!-- Subject Dropdown -->
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group mb-4">
+                                    <select name="subject" class="form-control" required>
+                                        <option value="">Select Subject</option>
+                                        <option value="General Inquiry">General Inquiry</option>
+                                        <option value="Product Support">Product Support</option>
+                                        <option value="Partnership">Partnership</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Message Field -->
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="form-group mb-4">
+                                    <textarea name="message" class="form-control" placeholder="Your Message" rows="5" required></textarea>
+                                </div>
+                            </div>
+                            <!-- Submit Button -->
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <!--* End mobile menu toggle-->
-                </div>
-                <div id="navigation" class="nav navbar-nav navbar-main">
-                    <ul id="main-menu" class="menu-primary">
-                        <li class="menu-item active">
-                            <a href="#home">Home</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#about">About</a>
-                        </li>
-                       
-                        <li class="menu-item">
-                            <a href="#modules">Modules</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#team">Team</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#contact">Contact</a>
-                        </li>
-
-                    </ul>
+                    </form>
                 </div>
             </div>
-        </header>
-        <!--* Nav Bar -->
-        <!--* Main Wrapper -->
-        <div id="main-wrapper" class="page-wrapper">
-            <!--* Start Page Header -->
-            <div class="page-header section-padding style-dark full-height dc-two pb-0">
-                <div class="container-fluid">
-                    <div class="row px-lg-5">
-                        <div class="col-lg-5">
-                            {% if banner_text %}
-                            <div class="heading-wrapper wow fadeInDown" data-wow-delay="0.8s">
-                                
-
-                                <h1><span>{{banner_text.heading}}</span></h1>
-                                <div class="lead-text">
-                                    <p>{{banner_text.sub_heading}}</p>
-                                </div>
-                                
-                            </div>
-                            {% endif %}
-                            <div class="btn-wrapper pt-5">
-                                <a class="btn btn-primary btn-light " href="#">try for free</a>
-                                <a class="btn btn-outline-primary btn-light" href="#"><i
-                                        class="fas fa-play-circle"></i>watch video</a>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div><!--* End Col -->
-                        <div class="col-lg-7">
-                            <div class="ss-wrapper wow fadeInUp" data-wow-delay="1.5s">
-                                <img class="laptop-img-bg img-fluid" src="{% static 'assets/images/laptop-screen.png' %}" alt="" />
-                                
-                                {% if bannerslider %}
-                                <div class="screenshot-slider text-center">
-                                    {% for slider in bannerslider %}
-                                    <div class="item">
-                                        <img src="{{slider.banner_image.url}}" alt="{{slider.name}}" class="img-fluid">
-                                    </div>
-                                    {% endfor %}
-                                   
-                                </div>
-                                
-                                {% endif %}
-                            </div>
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
-                </div>
-            </div>
-            <!--* End Page Header -->
-            <!--* Start About Section -->
-            <div class="about-section section-padding dc-two" id="about">
-                {% if about_us_section %}
-                <div class="container">
-                    <div class="row clearfix align-items-center flex-row-reverse justify-content-between">
-                        <div class="col-lg-6">
-                            {% if about_us_section.media_type == "you_tube_link" %}
-                            <div class="video-wrapper">
-                                <div class="video-player">
-                                    <iframe width="560" height="315" src="{{about_us_section.link}}"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            {% elif about_us_section.media_type == "video" %}
-                            <div class="video-wrapper">
-                                <div class="video-player">
-                                    <iframe width="560" height="315" src="{{about_us_section.about_us_media}}"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-                                </div>
-                            </div>
-                            {% elif about_us_section.media_type == "image" %}
-                            <div class="image-wrapper">
-                                <img src="{{ about_us_section.about_us_media.url }}" alt="{{ about_us_section.heading }}" style="width: 100%; height: 100%;">
-                            </div>
-                            {% endif %}
-                        </div><!--* End Col -->
-                        <div class="col-lg-5">
-                            <div class="heading-wrapper with-separator">
-                                <h2 class="h1"><span>{{about_us_section.heading}}</span></h2>
-                            </div>
-                            <!--* End Heading -->
-                            <div class="text-wrapper">
-                                <p class="lead-text">{{about_us_section.sub_heading}}</p>
-                                <p>{{about_us_section.main_content | linebreaks}}</p>
-                            </div>
-                            {% comment %} <div class="btn-wrapper">
-                                <a class="btn btn-primary" href="#">Discover More</a>
-                            </div> {% endcomment %}
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
-                </div>
-                {% endif %}
-            </div>
-            <!--* End About Section -->
-            <!--* Our Approach Section -->
-            <div class="fact-section style-dark dark-bg">
-                {% if counter_section %}
-                <div class="container">
-                    <div class="row clearfix">
-                        <div class="col-md-5">
-                            <div class="heading-wrapper pt-100 pb-30">
-                                <h2 class="h1"> <span>"{{ counter_section.heading }}"</span></h2>
-                                <div class="lead-text">
-                                    <p>{{counter_section.sub_heading}}</p>
-                                </div>
-                            </div><!--* End Heading -->
-                        </div><!--* End Col -->
-                        
-                        {% if counter_items %}
-
-                        <div class="col-md-7">
-                            <div class="counter-wrapper with-separator two-col-stack">
-                                {% for counter in counter_items %}
-                                <div class="counter-block with-icon wow fadeIn">
-                                    <div class="counter-icon">
-                                        <img src="{{counter.counter_icon.url}}" alt="Total Downloads">
-                                    </div>
-                                    <div class="counter">
-                                        <span class="counter-number-prefix"></span>
-                                        <span class="counter-number" data-speed="3500" data-stop="{{counter.counter_number}}">0</span>
-                                        <span class="counter-number-after"></span>
-                                        <span class="counter-number-suffix"></span>
-                                    </div>
-                                    <div class="counter-title">{{ counter.counter_text }}</div>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div><!--* End Col -->
-                        {% endif %}
-                    </div><!--* End Row -->
-                </div>
-                {% endif %}
-            </div>
-            <!--* Start Services Section -->
-            {% if services_text %}
-            <div class="services-section light-gradient-bg section-padding">
-                <div class="container">
-                    <div class="row clearfix justify-content-center">
-                        <div class="col-lg-10">
-                            <div class="heading-wrapper text-center with-separator">
-                                <h2 class="h1"><span>{{ services_text.heading }}</span></h2>
-                                <div class="lead-text">
-                                    <p>{{services_text.sub_heading}}</p>
-                                </div>
-                            </div>
-                            <!--* End Heading -->
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
-                    {% if services_items %}
-                    <div class="row clearfix">
-                        {% for items in services_items %}
-                        <div class="col-lg-4">
-                            <div class="icon-box theme-one wow fadeInLeft">
-                                <div class="icon">
-                                    <img src="{{items.icon.url}}" alt="{{items.title}}" class="img-fluid">
-                                </div>
-                                <div class="text">
-                                    <h4>{{items.title}}</h4>
-                                    <p>{{items.content}}</p>
-                                </div>
-                            </div>
-                        </div><!--* End Col -->
-
-                        {% endfor %}
-                    </div><!--* End Row -->
-                    {% endif %}
-                </div>
-            </div>
-            {% endif %}
-            <!--* End Services Section -->
-            <!--* Start Features Section -->
-            <div class="features-section section-padding style-dark dark-bg gradient-heading-bg dc-two" id="modules">
-                {% if features_section %}
-                <div class="container">
-                    <div class="row justify-content-center clearfix ">
-                        <div class="col-lg-8">
-                            <div class="heading-wrapper text-center position-relative">
-                                <h2 class="h1"><span>{{features_section.heading}}</span></h2>
-                                <div class="lead-text">
-                                    <p>{{features_section.sub_heading}}</p>
-                                </div>
-                            </div><!--* End Heading -->
-                            <div class="empty-space-60 clearfix"></div>
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
-                    {% if features_items %}
-                    <div class="row clearfix">
-                        {% for items in features_items %}
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features-block theme-two wow fadeInUp">
-                                <div class="inner-box">
-                                    <div class="text">
-                                        <h4>{{items.title}}</h4>
-                                        <p>{{items.content}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--* End Col -->
-                        {%endfor%}
-                        
-                    </div><!--* End Row -->
-                    {%endif%}
-                </div>
-                {%endif%}
-            </div>
-            <!--* End Features Section -->
-            <!-- Our Team -->
-            {% if team_section %}
-            <div class="our-team section-padding" id="team">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="heading-wrapper text-center with-separator">
-                                <h2 class="h1"><span>{{team_section.heading}}</span></h2>
-                                <div class="lead-text">
-                                    <p>{{team_section.sub_heading}}</p>
-                                </div>
-                            </div>
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
-                    {%if team %}
-                    <div class="row our_team">
-                        {% for members in team %}
-                        <div class="col-lg-3 col-md-6">
-                            <div class="st-team-member theme-one wow fadeInUp">
-                                <div class="team-member-wrapper">
-                                    <div class="st-team-image">
-                                        <img src="{{members.image.url}}" alt="{{members.name}}">
-                                        {% comment %} <div class="team-social">
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                        </div> {% endcomment %}
-                                    </div>
-                                    <div class="st-team-member-detail">
-                                        <h3 class="member-name">{{members.name}}</h3>
-                                        <span class="member-position">{{members.designation}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--* End Col -->
-                        {%endfor%}
-                    </div><!--* End Row -->
-                    {%endif%}
-                </div>
-            </div>
-            {% endif %}
-            <!-- Our Team end -->
-            <!--* Start Testimonial Section -->
-            {%if testimonial_heading%}
-            <div class="testimonial-section style-two section-padding pt-0">
-                <div class="container">
-                    <div class="row clearfix">
-                        <div class="col-lg-8">
-                            <div class="heading-wrapper">
-                                <h2 class="h1"><span>{{testimonial_heading.heading}}</span></h2>
-                                <div class="lead-text">
-                                    <p>{{testimonial_heading.sub_heading}}</p>
-                                </div>
-                            </div><!--* End Heading -->
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
-                    {% if testimonial_items %}
-                    <div class="row clearfix">
-                        <div class="col-lg-12">
-                            <div class="client-testimonial theme-two">
-                                <div class="testimonial-slider">
-                                    {% for testimonial in testimonial_items %}
-                                    <div class="item">
-                                        <div class="testimonial-text">
-                                            <blockquote>
-                                                {{testimonial.content}}
-                                            </blockquote>
-                                            <div class="client-info">
-                                                <h5>{{testimonial.name}}</h5>
-                                                <p>{{testimonial.designation}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div><!--* End Testimonial Slider -->    
-                            </div>
-                            
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
-                    {%endif%}
-                </div>
-            </div>
-            {%endif%}
-            <!--* End Testimonial Section -->
-            <!--* contact us -->
-            {% if settings %}
-            <div class="about-section section-padding" id="contact">
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-lg-4">
-                            <div class="contact-info-box wow fadeInLeft" data-wow-delay="0.8s">
-                                <div class="contact-wrapper">
-                                    <div class="icon">
-                                        <i class="mdi mdi-phone-incoming-outline"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4>Phone</h4>
-                                        <p>Our customer care is open from Mon-Fri, 10:00 am to 7:00 pm</p>
-                                        <p><a class="btn link-btn" href="tel:{{settings.phone_number}}">+91 {{settings.phone_number}}</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="contact-info-box wow fadeInLeft" data-wow-delay="1s">
-                                <div class="contact-wrapper">
-                                    <div class="icon">
-                                        <i class="mdi mdi-email-open-outline"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h4>Email</h4>
-                                        <p>Our support team will get back to in 24-hrs during standard business hours.</p>
-                                        <p><a class="btn link-btn" href="mailto:{{settings.email_address}}">{{settings.email_address}}</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--* End Col -->
-                        <div class="col-lg-8">
-                            <div class="heading-wrapper with-separator">
-                                <span class="sub-title">Get in touch</span>
-                                <h2 class="h1"><span>Connect</span> with us</h2>
-                            </div><!--* End Heading -->
-                            <div class="text-wrapper">
-                                <p>Please contact us using the details below.</p>
-                            </div>
-                            <div class="contact-form">
-                                <form method="post" action="{% url 'accounts:contact' %}">
-                                    {% csrf_token %}
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <input type="text" name="first_name" class="form-control" id="FiratName"
-                                                placeholder="First Name" required="">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <input type="text" name="last_name" class="form-control" id="LastName"
-                                                placeholder="Last Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Email Address"
-                                            required="">
-                                    </div>
-                                    <div class="form-group" >
-                                        <input type="text" class="form-control" id="subject" name="subject"
-                                            placeholder="How can I help you?" required="">
-                                    </div>
-                                    <div class="form-group" >
-                                        <textarea class="form-control" name="message"
-                                            placeholder="Tell me more about your requirement">
-                                        </textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary" value="Send Message">
-                                    </div>
-                                </form>
-                            </div>
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
-                </div>
-            </div><!--* About Section -->
-            <div class="map-custom-embed">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3555.96687769453!2d75.7154090244432!3d26.967948207716432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db2d9afae2b33%3A0xd0bf38b1e137a0af!2sParasme%20Software%20%26%20Technology!5e0!3m2!1sen!2sin!4v1737121320518!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div><!--* Map Section -->
         </div>
-        <!--* Main Wrapper -->
-        <footer class="site-footer footer-theme-two">
-            <div class="container-fluid">
-                <div class="main-footer style-dark">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="widget">
-                                <div class="text-widget">
-                                    <div class="about-info">
-                                        <div class="image-wrapper">
-                                            <img src="{% static 'assets/images/logo-white.png' %}" alt="" class="img-fluid" />
-                                        </div>
-                                        <p>{{settings.content}}</p>
-                                    </div>
-                                    <div class="playstore-widget">
-                                        <h3>Download the App</h3>
-                                        <ul>
-                                            <li class="google"><a href="#">Google Play</a></li>
-                                            <li class="apple"><a href="#">App Store</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!--* End Widget -->
-                        </div><!--* End Col -->
-                        <div class="col-lg-2">
-                            <div class="widget">
-                                <div class="widget-title">
-                                    <h3 class="title">Useful Links</h3>
-                                </div>
-                                <div class="text-widget">
-                                    <div class="footer-nav">
-                                        <ul>
-                                            <li><a href="#">RTE Portal (Rajasthan)</a></li>
-                                            <li><a href="#">CBSE Website</a></li>
-                                            <li><a href="#">End User License Agreement (EULA)</a></li>
-                                           
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!--* End Widget -->
-                        </div><!--* End Col -->
-                        <div class="col-lg-2">
-                            <div class="widget">
-                                <div class="widget-title">
-                                    <h3 class="title">Support</h3>
-                                </div>
-                                <div class="text-widget">
-                                    <div class="footer-nav">
-                                        <ul>
-                                            <li><a href="#">RBSE Website</a></li>
-                                            <li><a href="#">CBSE Result</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!--* End Widget -->
-                        </div><!--* End Col -->
-                        <div class="col-lg-4">
-                            <div class="widget">
-                                <div class="widget-title">
-                                    <h3 class="title">Stay Updated</h3>
-                                </div>
-                                <div class="text-widget">
-                                    <div class="contact-info">
-                                        <ul>
-                                            <li class="email-field">{{settings.email_address}}</li>
-                                            <li class="phone-field">{{settings.phone_number}}</li>
-                                            <li class="address-field">{{settings.address}}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="social-media-links">
-                                        <ul>
-                                            <li><a target="_blank" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a target="_blank" href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a target="_blank" href="#"><i class="fab fa-twitter"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!--* End Widget -->
-                        </div><!--* End Col -->
-                    </div><!--* End Row -->
+    </div>
+</section>
+<!--/ End Contact Form Section -->
+		
+<section class="projects-done section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h2>Our Completed Projects</h2>
+                    <img src="{% static 'assets/images/section-img.png' %}" alt="#">
+                    <p class="lead">Explore our successful projects and see how we deliver excellence in every endeavor.</p>
                 </div>
-                <div class="copyright-bar style-dark">
-                    <div class="copyright-text text-center">
-                        © Copyright Scholar byte 2025. Made with <i class="fas fa-heart"></i> by <a
-                            href="https://schloarbyte.net/" target="_blank"><strong>schloarbyte</strong></a>.
+            </div>
+        </div>
+        
+        <!-- Horizontal Slider Container -->
+        <div class="projects-slider-container">
+            <div class="projects-slider">
+                <!-- Project 1 -->
+                <div class="single-project card border-0 shadow-sm">
+                    <div class="project-image">
+                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 1" class="card-img-top">
+                    </div>
+                    <div class="project-details card-body">
+                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
+                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
+                        <div class="project-meta">
+                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
+                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="single-project card border-0 shadow-sm">
+                    <div class="project-image">
+                        <img src="{% static 'assets/images/pf2.jpg' %}" alt="Project 2" class="card-img-top">
+                    </div>
+                    <div class="project-details card-body">
+                        <h4 class="project-title card-title">Industrial Technologies</h4>
+                        <p class="project-description card-text">A virtual installation for advanced industrial technologies.</p>
+                        <div class="project-meta">
+                            <p class="project-year"><i class="icofont-calendar"></i> 2021</p>
+                            <p class="client-name"><i class="icofont-user"></i> Client: XYZ Engineering Ltd.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="single-project card border-0 shadow-sm">
+                    <div class="project-image">
+                        <img src="{% static 'assets/images/pf3.jpg' %}" alt="Project 3" class="card-img-top">
+                    </div>
+                    <div class="project-details card-body">
+                        <h4 class="project-title card-title">Financials Engine Equipment</h4>
+                        <p class="project-description card-text">A virtual installation for financial engine equipment.</p>
+                        <div class="project-meta">
+                            <p class="project-year"><i class="icofont-calendar"></i> 2022</p>
+                            <p class="client-name"><i class="icofont-user"></i> Client: PQR Industries</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="single-project card border-0 shadow-sm">
+                    <div class="project-image">
+                        <img src="{% static 'assets/images/pf4.jpg' %}" alt="Project 4" class="card-img-top">
+                    </div>
+                    <div class="project-details card-body">
+                        <h4 class="project-title card-title">Industrial Engine Integration</h4>
+                        <p class="project-description card-text">A virtual installation for industrial engine integration.</p>
+                        <div class="project-meta">
+                            <p class="project-year"><i class="icofont-calendar"></i> 2023</p>
+                            <p class="client-name"><i class="icofont-user"></i> Client: LMN Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="single-project card border-0 shadow-sm">
+                    <div class="project-image">
+                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 5" class="card-img-top">
+                    </div>
+                    <div class="project-details card-body">
+                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
+                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
+                        <div class="project-meta">
+                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
+                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
+                        </div>
+                    </div>
+                </div>
+				<div class="single-project card border-0 shadow-sm">
+                    <div class="project-image">
+                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 5" class="card-img-top">
+                    </div>
+                    <div class="project-details card-body">
+                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
+                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
+                        <div class="project-meta">
+                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
+                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
+                        </div>
+                    </div>
+                </div>
+				<div class="single-project card border-0 shadow-sm">
+                    <div class="project-image">
+                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 5" class="card-img-top">
+                    </div>
+                    <div class="project-details card-body">
+                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
+                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
+                        <div class="project-meta">
+                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
+                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
+                        </div>
+                    </div>
+                </div>
+				<div class="single-project card border-0 shadow-sm">
+                    <div class="project-image">
+                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 5" class="card-img-top">
+                    </div>
+                    <div class="project-details card-body">
+                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
+                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
+                        <div class="project-meta">
+                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
+                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!--* Main Footer -->
-            {%endif%}
-    </div>
-    <!--* Box-wrapper -->
-    <div class="overlay overlay-search">
-        <div class="close-search">
-            <span class="lines"></span>
         </div>
-        <div class="container">
-            <form method="post">
-                <div class="form-group">
-                    <input type="search" class="form-control" name="SearchInput" placeholder="Search…">
-                    <button type="submit" class="search-submit"><i class="fa fa-search"></i></button>
+        
+        <!-- Pagination Indicators -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="slider-pagination text-center">
+                    <!-- Pagination dots will be generated by JavaScript -->
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-    <!--* Search-form-->
-
-    <!--* Javascript -->
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery-migrate.min.js' %}"></script>
-    <script src="{% static 'assets/js/new-bootstrap-bundle.js' %}"></script>
-    <script src="{% static 'assets/js/appear.js' %}"></script>
-    <script src="{% static 'assets/js/wow-new.min.js' %}"></script>
-    <script src="{% static 'assets/js/slick.min.js' %}"></script>
-    <script src="{% static 'assets/js/dcode.js' %}"></script>
-    
-    
-    <script>
-        // Wait for the window to load
-        window.onload = function() {
-            // Hide the preloader
-            document.getElementById('preloader').style.display = 'none';
-        };
-    </script>
-
-    <script type="text/javascript">
-        $(document).on('ready', function () {
-
-            $(".our_team").slick({
-                dots: false,
-                infinite: true,
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-
-                pauseOnHover: true,
-
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 1,
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1,
-                            arrows: false,
-                            dots: true,
-                        }
-                    }
-
-                ]
-
-
-            });
-        });
-    </script>
-    <script>
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-    </script>
-</body>
-
+</section>
+		
+		<!-- Start service -->
+		<section class="services section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-title">
+							<h2>We Offer Different Services To Improve Your Health</h2>
+							<img src="{% static 'assets/images/section-img.png' %}" alt="#">
+							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Start Single Service -->
+						<div class="single-service">
+							<i class="icofont icofont-prescription"></i>
+							<h4><a href="service-details.html">General Treatment</a></h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+						</div>
+						<!-- End Single Service -->
+					</div>
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Start Single Service -->
+						<div class="single-service">
+							<i class="icofont icofont-tooth"></i>
+							<h4><a href="service-details.html">Teeth Whitening</a></h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+						</div>
+						<!-- End Single Service -->
+					</div>
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Start Single Service -->
+						<div class="single-service">
+							<i class="icofont icofont-heart-alt"></i>
+							<h4><a href="service-details.html">Heart Surgery</a></h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+						</div>
+						<!-- End Single Service -->
+					</div>
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Start Single Service -->
+						<div class="single-service">
+							<i class="icofont icofont-listening"></i>
+							<h4><a href="service-details.html">Ear Treatment</a></h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+						</div>
+						<!-- End Single Service -->
+					</div>
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Start Single Service -->
+						<div class="single-service">
+							<i class="icofont icofont-eye-alt"></i>
+							<h4><a href="service-details.html">Vision Problems</a></h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+						</div>
+						<!-- End Single Service -->
+					</div>
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Start Single Service -->
+						<div class="single-service">
+							<i class="icofont icofont-blood"></i>
+							<h4><a href="service-details.html">Blood Transfusion</a></h4>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+						</div>
+						<!-- End Single Service -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/ End service -->
+		
+		<!-- Pricing Table -->
+		<section class="pricing-table section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-title">
+							<h2>We Provide You The Best Treatment In Resonable Price</h2>
+							<img src="{% static 'assets/images/section-img.png' %}" alt="#">
+							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<!-- Single Table -->
+					<div class="col-lg-4 col-md-12 col-12">
+						<div class="single-table">
+							<!-- Table Head -->
+							<div class="table-head">
+								<div class="icon">
+									<i class="icofont icofont-ui-cut"></i>
+								</div>
+								<h4 class="title">Plastic Suggery</h4>
+								<div class="price">
+									<p class="amount">$199<span>/ Per Visit</span></p>
+								</div>	
+							</div>
+							<!-- Table List -->
+							<ul class="table-list">
+								<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
+								<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+							</ul>
+							<div class="table-bottom">
+								<a class="btn" href="#">Book Now</a>
+							</div>
+							<!-- Table Bottom -->
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-12">
+						<div class="single-table">
+							<!-- Table Head -->
+							<div class="table-head">
+								<div class="icon">
+									<i class="icofont icofont-ui-cut"></i>
+								</div>
+								<h4 class="title">Plastic Suggery</h4>
+								<div class="price">
+									<p class="amount">$199<span>/ Per Visit</span></p>
+								</div>	
+							</div>
+							<!-- Table List -->
+							<ul class="table-list">
+								<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
+								<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+							</ul>
+							<div class="table-bottom">
+								<a class="btn" href="#">Book Now</a>
+							</div>
+							<!-- Table Bottom -->
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-12">
+						<div class="single-table">
+							<!-- Table Head -->
+							<div class="table-head">
+								<div class="icon">
+									<i class="icofont icofont-ui-cut"></i>
+								</div>
+								<h4 class="title">Plastic Suggery</h4>
+								<div class="price">
+									<p class="amount">$199<span>/ Per Visit</span></p>
+								</div>	
+							</div>
+							<!-- Table List -->
+							<ul class="table-list">
+								<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
+								<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Nullam interdum enim</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+							</ul>
+							<div class="table-bottom">
+								<a class="btn" href="#">Book Now</a>
+							</div>
+							<!-- Table Bottom -->
+						</div>
+					</div>
+					<!-- End Single Table-->
+					<!-- Single Table -->
+					<div class="col-lg-4 col-md-12 col-12">
+						<div class="single-table">
+							<!-- Table Head -->
+							<div class="table-head">
+								<div class="icon">
+									<i class="icofont icofont-tooth"></i>
+								</div>
+								<h4 class="title">Teeth Whitening</h4>
+								<div class="price">
+									<p class="amount">$299<span>/ Per Visit</span></p>
+								</div>	
+							</div>
+							<!-- Table List -->
+							<ul class="table-list">
+								<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
+								<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
+								<li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
+								<li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
+							</ul>
+							<div class="table-bottom">
+								<a class="btn" href="#">Book Now</a>
+							</div>
+							<!-- Table Bottom -->
+						</div>
+					</div>
+					<!-- End Single Table-->
+					<!-- Single Table -->
+					<div class="col-lg-4 col-md-12 col-12">
+						<div class="single-table">
+							<!-- Table Head -->
+							<div class="table-head">
+								<div class="icon">
+									<i class="icofont-heart-beat"></i>
+								</div>
+								<h4 class="title">Heart Suggery</h4>
+								<div class="price">
+									<p class="amount">$399<span>/ Per Visit</span></p>
+								</div>	
+							</div>
+							<!-- Table List -->
+							<ul class="table-list">
+								<li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
+								<li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
+								<li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
+								<li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
+								<li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
+							</ul>
+							<div class="table-bottom">
+								<a class="btn" href="#">Book Now</a>
+							</div>
+							<!-- Table Bottom -->
+						</div>
+					</div>
+					<!-- End Single Table-->
+				</div>	
+			</div>	
+		</section>	
+		<!--/ End Pricing Table -->
+		
+		
+		
+		<!-- Start Blog Area -->
+		<section class="blog section" id="blog">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-title">
+							<h2>Keep up with Our Most Recent Medical News.</h2>
+							<img src="{% static 'assets/images/section-img.png' %}" alt="#">
+							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Single Blog -->
+						<div class="single-news">
+							<div class="news-head">
+								<img src="{% static 'assets/images/blog1.jpg' %}" alt="#">
+							</div>
+							<div class="news-body">
+								<div class="news-content">
+									<div class="date">22 Aug, 2020</div>
+									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
+									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+								</div>
+							</div>
+						</div>
+						<!-- End Single Blog -->
+					</div>
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Single Blog -->
+						<div class="single-news">
+							<div class="news-head">
+								<img src="{% static 'assets/images/blog2.jpg' %}" alt="#">
+							</div>
+							<div class="news-body">
+								<div class="news-content">
+									<div class="date">15 Jul, 2020</div>
+									<h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
+									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+								</div>
+							</div>
+						</div>
+						<!-- End Single Blog -->
+					</div>
+					<div class="col-lg-4 col-md-6 col-12">
+						<!-- Single Blog -->
+						<div class="single-news">
+							<div class="news-head">
+								<img src="{% static 'assets/images/blog3.jpg' %}" alt="#">
+							</div>
+							<div class="news-body">
+								<div class="news-content">
+									<div class="date">05 Jan, 2020</div>
+									<h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
+									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+								</div>
+							</div>
+						</div>
+						<!-- End Single Blog -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Blog Area -->
+		
+		<!-- Start clients -->
+		<div class="clients overlay">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-12">
+						<div class="owl-carousel clients-slider">
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client1.png' %}" alt="#">
+							</div>
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client2.png' %}" alt="#">
+							</div>
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client3.png' %}" alt="#">
+							</div>
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client4.png' %}" alt="#">
+							</div>
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client5.png' %}" alt="#">
+							</div>
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client1.png' %}" alt="#">
+							</div>
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client2.png' %}" alt="#">
+							</div>
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client3.png' %}" alt="#">
+							</div>
+							<div class="single-clients">
+								<img src="{% static 'assets/images/client4.png' %}" alt="#">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/Ens clients -->
+		
+		<!-- Start Appointment -->
+		<section class="appointment">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-title">
+							<h2>We Are Always Ready to Help You. Book An Appointment</h2>
+							<img src="{% static 'assets/images/section-img.png' %}" alt="#">
+							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-12 col-12">
+						<form class="form" action="#">
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="name" type="text" placeholder="Name">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="email" type="email" placeholder="Email">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input name="phone" type="text" placeholder="Phone">
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<div class="nice-select form-control wide" tabindex="0"><span class="current">Department</span>
+											<ul class="list">
+												<li data-value="1" class="option selected ">Department</li>
+												<li data-value="2" class="option">Cardiac Clinic</li>
+												<li data-value="3" class="option">Neurology</li>
+												<li data-value="4" class="option">Dentistry</li>
+												<li data-value="5" class="option">Gastroenterology</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<div class="nice-select form-control wide" tabindex="0"><span class="current">Doctor</span>
+											<ul class="list">
+												<li data-value="1" class="option selected ">Doctor</li>
+												<li data-value="2" class="option">Dr. Akther Hossain</li>
+												<li data-value="3" class="option">Dr. Dery Alex</li>
+												<li data-value="4" class="option">Dr. Jovis Karon</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-12">
+									<div class="form-group">
+										<input type="text" placeholder="Date" id="datepicker">
+									</div>
+								</div>
+								<div class="col-lg-12 col-md-12 col-12">
+									<div class="form-group">
+										<textarea name="message" placeholder="Write Your Message Here....."></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-5 col-md-4 col-12">
+									<div class="form-group">
+										<div class="button">
+											<button type="submit" class="btn">Book An Appointment</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-7 col-md-8 col-12">
+									<p>( We will be confirm by an Text Message )</p>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="col-lg-6 col-md-12 ">
+						<div class="appointment-image">
+							<img src="{% static 'assets/images/contact-img.png' %}" alt="#">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Appointment -->		
+		<!-- Footer Area -->
+		<footer id="footer" class="footer ">
+			<!-- Footer Top -->
+			<div class="footer-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-12">
+							<div class="single-footer">
+								<h2>About Us</h2>
+								<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
+								<!-- Social -->
+								<ul class="social">
+									<li><a href="#"><i class="icofont-facebook"></i></a></li>
+									<li><a href="#"><i class="icofont-google-plus"></i></a></li>
+									<li><a href="#"><i class="icofont-twitter"></i></a></li>
+									<li><a href="#"><i class="icofont-vimeo"></i></a></li>
+									<li><a href="#"><i class="icofont-pinterest"></i></a></li>
+								</ul>
+								<!-- End Social -->
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12">
+							<div class="single-footer f-link">
+								<h2>Quick Links</h2>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-12">
+										<ul>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>	
+										</ul>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12">
+										<ul>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
+											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12">
+							<div class="single-footer">
+								<h2>Open Hours</h2>
+								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
+								<ul class="time-sidual">
+									<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
+									<li class="day">Saturday <span>9.00-18.30</span></li>
+									<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6 col-12">
+							<div class="single-footer">
+								<h2>Newsletter</h2>
+								<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
+										onblur="this.placeholder = 'Your email address'" required="" type="email">
+									<button class="button"><i class="icofont icofont-paper-plane"></i></button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ End Footer Top -->
+			<!-- Copyright -->
+			<div class="copyright">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-12">
+							<div class="copyright-content">
+								<p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--/ End Copyright -->
+		</footer>
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				const slider = document.querySelector('.projects-slider');
+				const slides = document.querySelectorAll('.projects-slider .single-project');
+				const paginationContainer = document.querySelector('.slider-pagination');
+				
+				// Determine how many slides to show based on screen width
+				function getSlidesToShow() {
+					if (window.innerWidth >= 1200) return 4;  // Show exactly 4 on large screens
+					if (window.innerWidth >= 992) return 3;   // Show 3 on medium-large screens
+					if (window.innerWidth >= 768) return 2;   // Show 2 on medium screens
+					return 1;                                 // Show 1 on small screens
+				}
+				
+				let currentIndex = 0;
+				let slidesToShow = getSlidesToShow();
+				let maxIndex = slides.length - slidesToShow;
+				
+				// Auto slide interval in milliseconds (5 seconds)
+				const autoSlideInterval = 5000;
+				let autoSlideTimer;
+				
+				// Create pagination dots based on visible slides
+				function createPagination() {
+					// Clear existing pagination
+					paginationContainer.innerHTML = '';
+					
+					// Calculate how many pagination dots we need
+					const totalDots = maxIndex + 1;
+					
+					for (let i = 0; i < totalDots; i++) {
+						const dot = document.createElement('span');
+						dot.classList.add('pagination-dot');
+						if (i === 0) dot.classList.add('active');
+						dot.dataset.index = i;
+						paginationContainer.appendChild(dot);
+						
+						dot.addEventListener('click', () => {
+							goToSlide(i);
+							resetAutoSlideTimer();
+						});
+					}
+				}
+				
+				// Calculate slide widths correctly
+				function calculateSlideWidth() {
+					// Get actual width of a slide
+					const slideStyles = window.getComputedStyle(slides[0]);
+					const slideWidth = slides[0].offsetWidth + 
+									   parseInt(slideStyles.marginRight, 10);
+					return slideWidth;
+				}
+				
+				// Update slide positions and pagination
+				function updateSlider() {
+					const slideWidth = calculateSlideWidth();
+					slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+					
+					// Update active pagination dot
+					document.querySelectorAll('.pagination-dot').forEach((dot, index) => {
+						dot.classList.toggle('active', index === currentIndex);
+					});
+				}
+				
+				// Go to specific slide
+				function goToSlide(index) {
+					// Handle edge cases with circular navigation
+					if (index > maxIndex) {
+						currentIndex = 0;
+					} else if (index < 0) {
+						currentIndex = maxIndex;
+					} else {
+						currentIndex = index;
+					}
+					
+					updateSlider();
+				}
+				
+				// Auto slide to next
+				function autoSlide() {
+					goToSlide(currentIndex + 1);
+				}
+				
+				// Reset and restart auto slide timer
+				function resetAutoSlideTimer() {
+					clearInterval(autoSlideTimer);
+					autoSlideTimer = setInterval(autoSlide, autoSlideInterval);
+				}
+				
+				// Handle window resize
+				window.addEventListener('resize', () => {
+					// Recalculate how many slides should be shown
+					const newSlidesToShow = getSlidesToShow();
+					const newMaxIndex = slides.length - newSlidesToShow;
+					
+					// Update variables if needed
+					if (slidesToShow !== newSlidesToShow) {
+						slidesToShow = newSlidesToShow;
+						maxIndex = newMaxIndex;
+						
+						// Ensure current index is valid
+						if (currentIndex > maxIndex) {
+							currentIndex = maxIndex;
+						}
+						
+						// Recreate pagination
+						createPagination();
+					}
+					
+					// Update slider display
+					updateSlider();
+				});
+				
+				// Pause auto-sliding when user hovers over slider
+				slider.addEventListener('mouseenter', () => {
+					clearInterval(autoSlideTimer);
+				});
+				
+				slider.addEventListener('mouseleave', () => {
+					resetAutoSlideTimer();
+				});
+				
+				// Initialize slider
+				createPagination();
+				updateSlider();
+				
+				// Start auto-sliding
+				resetAutoSlideTimer();
+			});
+		</script>
+		
+		<!-- jquery Min JS -->
+        <script src="{% static 'assets/js_home/jquery.min.js' %}"></script>
+		<!-- jquery Migrate JS -->
+		<script src="{% static 'assets/js_home/jquery-migrate-3.0.0.js' %}"></script>
+		<!-- jquery Ui JS -->
+		<script src="{% static 'assets/js_home/jquery-ui.min.js' %}"></script>
+		<!-- Easing JS -->
+        <script src="{% static 'assets/js_home/easing.js' %}"></script>
+		<!-- Color JS -->
+		<script src="{% static 'assets/js_home/colors.js' %}"></script>
+		<!-- Popper JS -->
+		<script src="{% static 'assets/js_home/popper.min.js' %}"></script>
+		<!-- Bootstrap Datepicker JS -->
+		<script src="{% static 'assets/js_home/bootstrap-datepicker.js' %}"></script>
+		<!-- Jquery Nav JS -->
+        <script src="{% static 'assets/js_home/jquery.nav.js' %}"></script>
+		<!-- Slicknav JS -->
+		<script src="{% static 'assets/js_home/slicknav.min.js' %}"></script>
+		<!-- ScrollUp JS -->
+        <script src="{% static 'assets/js_home/jquery.scrollUp.min.js' %}"></script>
+		<!-- Niceselect JS -->
+		<script src="{% static 'assets/js_home/niceselect.js' %}"></script>
+		<!-- Tilt Jquery JS -->
+		<script src="{% static 'assets/js_home/tilt.jquery.min.js' %}"></script>
+		<!-- Owl Carousel JS -->
+        <script src="{% static 'assets/js_home/owl-carousel.js' %}"></script>
+		<!-- counterup JS -->
+		<script src="{% static 'assets/js_home/jquery.counterup.min.js' %}"></script>
+		<!-- Steller JS -->
+		<script src="{% static 'assets/js_home/steller.js' %}"></script>
+		<!-- Wow JS -->
+		<script src="{% static 'assets/js_home/wow.min.js' %}"></script>
+		<!-- Magnific Popup JS -->
+		<script src="{% static 'assets/js_home/jquery.magnific-popup.min.js' %}"></script>
+		<!-- Counter Up CDN JS -->
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script src="{% static 'assets/js_home/bootstrap.min.js' %}"></script>
+		<!-- Main JS -->
+		<script src="{% static 'assets/js_home/main.js' %}"></script>
+    </body>
 </html>

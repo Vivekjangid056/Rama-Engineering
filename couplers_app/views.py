@@ -18,7 +18,6 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     products = AdminProducts.objects.filter(is_active = True)
-    bannerslider = AdminBannerSlider.objects.filter(is_active = True)
     banner_text = AdminBannerText.objects.all().first()
     about_us_section = AdminAboutUsSection.objects.all().first()
     counter_section = AdminCounterSection.objects.all().first()
@@ -37,7 +36,6 @@ def home(request):
     total_modules = AdminModules.objects.all().count()
     context={
         'products':products,
-        'bannerslider':bannerslider,
         'banner_text':banner_text,
         'about_us_section':about_us_section,
         'counter_section':counter_section,
@@ -208,32 +206,6 @@ class AdminTeamDeleteView(LoginRequiredMixin, DeleteView):
     model = AdminTeam
     template_name = 'confirm_delete.html'
     success_url = reverse_lazy('couplers:admin_team_list')
-
-
-class AdminBannerListView(LoginRequiredMixin, ListView):
-    model = AdminBannerSlider
-    template_name = 'admin_banner_list.html'
-    context_object_name = 'banners'
-
-
-class AdminBannerCreateView(LoginRequiredMixin, CreateView):
-    model = AdminBannerSlider
-    form_class = AdminBannerSliderForm
-    template_name = 'landing_form.html'
-    success_url = reverse_lazy('couplers:admin_banner_list')
-
-
-class AdminBannerUpdateView(LoginRequiredMixin, UpdateView):
-    model = AdminBannerSlider
-    form_class = AdminBannerSliderForm
-    template_name = 'landing_form.html'
-    success_url = reverse_lazy('couplers:admin_banner_list')
-
-
-class AdminBannerDeleteView(LoginRequiredMixin, DeleteView):
-    model = AdminBannerSlider
-    template_name = 'confirm_delete.html'
-    success_url = reverse_lazy('couplers:admin_banner_list')
 
 
 class AdminAddressListView(LoginRequiredMixin, ListView):
