@@ -97,74 +97,273 @@
 /* Slider CSS */
 
 
-/* Slider container */
+/* Projects Slider Container */
 .projects-slider-container {
-	width: 100%;
-	overflow: hidden;
-	position: relative;
-	padding: 5px 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 15px 0 25px;
 }
 
 /* Slider wrapper */
 .projects-slider {
-	display: flex;
-	transition: transform 0.8s ease;
-	padding: 10px 0;
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+    padding-bottom: 10px;
 }
 
 /* Individual project card */
-.projects-slider .single-project {
-	flex: 0 0 calc(25% - 20px);  /* Exactly 4 cards with small gap */
-	margin-right: 20px;
-	box-sizing: border-box;
+.single-project {
+    flex: 0 0 calc(25% - 15px);
+    min-width: 0; /* Fix flexbox overflow issue */
+    transition: all 0.3s ease;
+    border-radius: 8px !important;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1199px) {
-	.projects-slider .single-project {
-		flex: 0 0 calc(33.333% - 20px);  /* 3 cards for medium-large screens */
-	}
+/* Project image container */
+.project-image {
+    height: 200px;
+    overflow: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
-@media (max-width: 991px) {
-	.projects-slider .single-project {
-		flex: 0 0 calc(50% - 20px);  /* 2 cards for medium screens */
-	}
+/* Project image styling */
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-@media (max-width: 767px) {
-	.projects-slider .single-project {
-		flex: 0 0 calc(100% - 20px);  /* 1 card for small screens */
-	}
+.single-project:hover .project-img {
+    transform: scale(1.05);
+}
+
+/* Project details */
+.project-details {
+    padding: 20px;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project-description {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.project-meta {
+    font-size: 0.85rem;
+    color: #555;
 }
 
 /* Pagination styling */
 .slider-pagination {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .pagination-dot {
-	display: inline-block;
-	width: 12px;
-	height: 12px;
-	background-color: #ddd;
-	border-radius: 50%;
-	margin: 0 5px;
-	cursor: pointer;
-	transition: background-color 0.3s;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .pagination-dot.active {
-	background-color: #007bff;
+    background-color: #007bff;
+    transform: scale(1.2);
 }
 
-/* Pause on hover */
-.projects-slider-container:hover .projects-slider {
-	animation-play-state: paused;
+/* Responsive adjustments */
+@media (max-width: 1199px) {
+    .single-project {
+        flex: 0 0 calc(33.333% - 14px);
+    }
+}
+
+@media (max-width: 991px) {
+    .single-project {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 767px) {
+    .single-project {
+        flex: 0 0 100%;
+    }
+    
+    .project-image {
+        height: 180px;
+    }
 }
 
 
 
+
+
+
+
+/* Blog Slider Container */
+.blog-slider-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Blog Slider Wrapper */
+.blog-slider {
+    display: flex;
+    transition: transform 0.8s ease;
+    padding: 10px 0;
+}
+
+/* Individual Blog Card */
+.blog-slider .single-news {
+    flex: 0 0 calc(25% - 20px);  /* Exactly 4 cards with small gap */
+    margin-right: 20px;
+    box-sizing: border-box;
+}
+
+/* Responsive Adjustments for Blog Slider */
+@media (max-width: 1199px) {
+    .blog-slider .single-news {
+        flex: 0 0 calc(33.333% - 20px);  /* 3 cards for medium-large screens */
+    }
+}
+
+@media (max-width: 991px) {
+    .blog-slider .single-news {
+        flex: 0 0 calc(50% - 20px);  /* 2 cards for medium screens */
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-slider .single-news {
+        flex: 0 0 calc(100% - 20px);  /* 1 card for small screens */
+    }
+}
+
+/* Blog Pagination */
+.blog-pagination {
+    margin-top: 20px;
+}
+
+.blog-pagination .pagination-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.blog-pagination .pagination-dot.active {
+    background-color: #007bff;
+}
+
+
+
+
+
+/* Banner CSS */
+
+
+.hero-slider {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+.single-slider {
+	position: relative;
+	height: 500px; /* Adjust height as needed */
+	background-size: cover;
+	background-position: center right;
+	display: flex;
+	align-items: center;
+}
+
+/* Gradient overlay for fade effect */
+.single-slider::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40%; /* Adjust the width of the fade */
+	height: 100%;
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+	z-index: 1;
+}
+
+/* Second gradient for smooth transition */
+.single-slider::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 40%; /* Should match the width above */
+	width: 10%;
+	height: 100%;
+	background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 100%);
+	z-index: 1;
+}
+
+.single-slider .container {
+	position: relative;
+	z-index: 2;
+}
+
+.single-slider .text {
+	max-width: 600px;
+	padding: 40px;
+	background-color: rgba(255, 255, 255, 0.85);
+	border-radius: 8px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.single-slider h1 {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	color: #333;
+}
+
+.single-slider p {
+	font-size: 1.2rem;
+	color: #555;
+	margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	.single-slider {
+		height: 400px;
+		background-position: center;
+	}
+	
+	.single-slider::before {
+		width: 100%;
+		background: linear-gradient(90deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
+	}
+	
+	.single-slider .text {
+		max-width: 100%;
+		padding: 20px;
+		margin: 20px;
+	}
+}
 
 	</style>
     <body>
@@ -212,11 +411,6 @@
 									</nav>
 								</div>
 							</div>
-		
-							<!-- Login Button (Right Aligned) -->
-							<div class="col-lg-3 col-md-3 col-6 d-flex justify-content-end">
-								<a href="login.html" class="btn btn-primary">Login</a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -225,79 +419,53 @@
 		<!-- End Header Area -->
 		
 		<!-- Slider Area -->
-		<section class="slider">
-			<div class="hero-slider">
-				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image: url('{% static 'assets/images/slider2.jpg' %}');">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-7">
-								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- End Single Slider -->
-				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('{% static 'assets/images/slider.jpg' %}');">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-7">
-								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- End Single Slider -->
-				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('{% static 'assets/images/slider3.jpg' %}');">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-7">
-								<div class="text">
-									<h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque, faucibus libero eu, gravida quam. </p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- End Single Slider -->
-			</div>
-		</section>
+{% if banner_text %}
+
+<section class="slider">
+    <div class="hero-slider">
+        {% for banner in banner_text %}
+        <div class="single-slider" style="background-image: url('{{ banner.banner_image.url }}');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="text">
+                            <h1>{{ banner.heading }}</h1>
+                            <p>{{ banner.sub_heading }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
 		<!--/ End Slider Area -->
 
 		<!-- Start Feautes -->
+		 {% if about_us_section %}
 		<section class="about-us section">
 			<div class="container">
 				<div class="row align-items-center">
 					<!-- Left Side Image -->
 					<div class="col-lg-6 col-md-12">
 						<div class="about-image">
-							<img src="{% static 'assets/images/blog3.jpg' %}" style="display:block" alt="About Us" class="img-fluid rounded shadow-lg">
+							<img src="{{ about_us_section.about_us_media.url }}" style="display:block" alt="About Us" class="img-fluid rounded shadow-lg">
 						</div>
 					</div>
 		
 					<!-- Right Side Content -->
 					<div class="col-lg-6 col-md-12">
 						<div class="about-content">
-							<h2 class="mb-4">About Our Services</h2>
+							<h2 class="mb-4">{{ about_us_section.heading }}</h2>
 							<p class="lead">
-								We are dedicated to providing exceptional healthcare services for you and your family. 
-								Our team of experienced professionals is committed to delivering high-quality treatment 
-								with compassion and care.
+								{{ about_us_section.sub_heading }}
 							</p>
 							<ul class="about-list">
-								<li><i class="icofont-check-circled"></i> 24/7 Emergency Assistance</li>
-								<li><i class="icofont-check-circled"></i> Highly Qualified Doctors</li>
-								<li><i class="icofont-check-circled"></i> Modern Medical Equipment</li>
-								<li><i class="icofont-check-circled"></i> Affordable Healthcare Services</li>
+								<li><i class="icofont-check-circled"></i>{{about_us_section.service1}}</li>
+								<li><i class="icofont-check-circled"></i>{{about_us_section.service2}}</li>
+								<li><i class="icofont-check-circled"></i>{{about_us_section.service3}}</li>
+								<li><i class="icofont-check-circled"></i>{{about_us_section.service4}}</li>
 							</ul>
 							<a href="contact.html" class="btn btn-primary mt-3">Learn More</a>
 						</div>
@@ -305,6 +473,7 @@
 				</div>
 			</div>
 		</section>
+		{% endif %}
 		
 		<!--/ End Feautes -->
 		
@@ -360,63 +529,38 @@
 			</div>
 		</div>
 		<!--/ End Fun-facts -->
-		
+		{% if products %}
 		<!-- Start Why choose -->
 		<section class="products section">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title text-center">
+							{% if project_text %}
+							<h2>{{ project_text.heading }}</h2>
+							<p>{{ project_text.subheading }}</p>
+							{% else %}
 							<h2>Our Best-Selling Products</h2>
 							<p>Explore our range of high-quality healthcare products designed for your well-being.</p>
+							{% endif %}
 						</div>
 					</div>
 				</div>
 		
 				<div class="row">
+					{% for product in products %}
 					<!-- Product 1 -->
 					<div class="col-lg-4 col-md-6 col-12">
 						<div class="single-product shadow-sm p-3 text-center">
-							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 1" class="img-fluid rounded">
-							<h4 class="mt-3">Product Name 1</h4>
+							<img src="{{ product.product_image.url }}" alt="Product 1" class="img-fluid rounded">
+							<h4 class="mt-3">{{ product.name }}</h4>
 						</div>
 					</div>
-		
-					<!-- Product 2 -->
-					<div class="col-lg-4 col-md-6 col-12">
-						<div class="single-product shadow-sm p-3 text-center">
-							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 2" class="img-fluid rounded">
-							<h4 class="mt-3">Product Name 2</h4>
-						</div>
-					</div>
-		
-					<!-- Product 3 -->
-					<div class="col-lg-4 col-md-6 col-12">
-						<div class="single-product shadow-sm p-3 text-center">
-							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 3" class="img-fluid rounded">
-							<h4 class="mt-3">Product Name 3</h4>
-						</div>
-					</div>
-		
-					<!-- Product 4 -->
-					<div class="col-lg-4 col-md-6 col-12">
-						<div class="single-product shadow-sm p-3 text-center">
-							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 4" class="img-fluid rounded">
-							<h4 class="mt-3">Product Name 4</h4>
-						</div>
-					</div>
-		
-					<!-- Product 5 -->
-					<div class="col-lg-4 col-md-6 col-12">
-						<div class="single-product shadow-sm p-3 text-center">
-							<img src="{% static 'assets/images/blog3.jpg' %}" alt="Product 5" class="img-fluid rounded">
-							<h4 class="mt-3">Product Name 5</h4>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</section>
-		
+		{% endif %}
 		<!--/ End Why choose -->
 		
 <!-- Start Contact Form Section -->
@@ -479,144 +623,53 @@
     </div>
 </section>
 <!--/ End Contact Form Section -->
-		
+{% if projects %}
 <section class="projects-done section bg-light">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title text-center">
-                    <h2>Our Completed Projects</h2>
+                    <h2>Our Completed / Ongoing Projects</h2>
                     <img src="{% static 'assets/images/section-img.png' %}" alt="#">
                     <p class="lead">Explore our successful projects and see how we deliver excellence in every endeavor.</p>
                 </div>
             </div>
         </div>
         
-        <!-- Horizontal Slider Container -->
         <div class="projects-slider-container">
             <div class="projects-slider">
-                <!-- Project 1 -->
-                <div class="single-project card border-0 shadow-sm">
+                {% for project in projects %}
+                <div class="single-project card border-0 shadow-sm h-100">
                     <div class="project-image">
-                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 1" class="card-img-top">
+                        {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.project_name }}" class="card-img-top project-img">
+                        {% else %}
+                        <img src="{% static 'assets/images/project-dummy.jpg' %}" alt="Project Image" class="card-img-top project-img">
+                        {% endif %}
                     </div>
-                    <div class="project-details card-body">
-                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
-                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
-                        <div class="project-meta">
-                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
-                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
+                    <div class="project-details card-body d-flex flex-column">
+                        <h3 class="project-title card-title">{{ project.project_name }}</h3>
+                        <p class="project-description card-text">{{ project.short_description }}</p>
+                        <div class="project-meta mt-auto">
+                            <p class="project-year mb-1"><i class="icofont-calendar"></i> {{ project.date_completed }}</p>
+                            <p class="client-name mb-1"><i class="icofont-user"></i> Client: {{ project.client_name }}</p>
+                            <p class="client-location mb-0"><i class="icofont-location-pin"></i> Place: {{ project.place }}</p>
                         </div>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="single-project card border-0 shadow-sm">
-                    <div class="project-image">
-                        <img src="{% static 'assets/images/pf2.jpg' %}" alt="Project 2" class="card-img-top">
-                    </div>
-                    <div class="project-details card-body">
-                        <h4 class="project-title card-title">Industrial Technologies</h4>
-                        <p class="project-description card-text">A virtual installation for advanced industrial technologies.</p>
-                        <div class="project-meta">
-                            <p class="project-year"><i class="icofont-calendar"></i> 2021</p>
-                            <p class="client-name"><i class="icofont-user"></i> Client: XYZ Engineering Ltd.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="single-project card border-0 shadow-sm">
-                    <div class="project-image">
-                        <img src="{% static 'assets/images/pf3.jpg' %}" alt="Project 3" class="card-img-top">
-                    </div>
-                    <div class="project-details card-body">
-                        <h4 class="project-title card-title">Financials Engine Equipment</h4>
-                        <p class="project-description card-text">A virtual installation for financial engine equipment.</p>
-                        <div class="project-meta">
-                            <p class="project-year"><i class="icofont-calendar"></i> 2022</p>
-                            <p class="client-name"><i class="icofont-user"></i> Client: PQR Industries</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 4 -->
-                <div class="single-project card border-0 shadow-sm">
-                    <div class="project-image">
-                        <img src="{% static 'assets/images/pf4.jpg' %}" alt="Project 4" class="card-img-top">
-                    </div>
-                    <div class="project-details card-body">
-                        <h4 class="project-title card-title">Industrial Engine Integration</h4>
-                        <p class="project-description card-text">A virtual installation for industrial engine integration.</p>
-                        <div class="project-meta">
-                            <p class="project-year"><i class="icofont-calendar"></i> 2023</p>
-                            <p class="client-name"><i class="icofont-user"></i> Client: LMN Solutions</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 5 -->
-                <div class="single-project card border-0 shadow-sm">
-                    <div class="project-image">
-                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 5" class="card-img-top">
-                    </div>
-                    <div class="project-details card-body">
-                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
-                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
-                        <div class="project-meta">
-                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
-                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
-                        </div>
-                    </div>
-                </div>
-				<div class="single-project card border-0 shadow-sm">
-                    <div class="project-image">
-                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 5" class="card-img-top">
-                    </div>
-                    <div class="project-details card-body">
-                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
-                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
-                        <div class="project-meta">
-                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
-                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
-                        </div>
-                    </div>
-                </div>
-				<div class="single-project card border-0 shadow-sm">
-                    <div class="project-image">
-                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 5" class="card-img-top">
-                    </div>
-                    <div class="project-details card-body">
-                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
-                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
-                        <div class="project-meta">
-                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
-                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
-                        </div>
-                    </div>
-                </div>
-				<div class="single-project card border-0 shadow-sm">
-                    <div class="project-image">
-                        <img src="{% static 'assets/images/pf1.jpg' %}" alt="Project 5" class="card-img-top">
-                    </div>
-                    <div class="project-details card-body">
-                        <h4 class="project-title card-title">Industrial Quality Installation</h4>
-                        <p class="project-description card-text">A virtual installation for industrial quality enhancement.</p>
-                        <div class="project-meta">
-                            <p class="project-year"><i class="icofont-calendar"></i> 2020</p>
-                            <p class="client-name"><i class="icofont-user"></i> Client: ABC Manufacturing Co.</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         
         <!-- Pagination Indicators -->
         <div class="row mt-4">
             <div class="col-12">
-                <div class="slider-pagination text-center">
-                    <!-- Pagination dots will be generated by JavaScript -->
-                </div>
+                <div class="slider-pagination text-center"></div>
             </div>
         </div>
     </div>
 </section>
+{% endif %}
 		
 		<!-- Start service -->
 		<section class="services section">
@@ -700,102 +753,97 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
+		
+				<!-- Blog Slider Container -->
+				<div class="blog-slider-container">
+					<div class="blog-slider">
+						<!-- Blog 1 -->
+						<div class="single-news card border-0 shadow-sm">
 							<div class="news-head">
-								<img src="{% static 'assets/images/blog1.jpg' %}" alt="#">
+								<img src="{% static 'assets/images/blog1.jpg' %}" alt="Blog 1" class="card-img-top">
 							</div>
-							<div class="news-body">
+							<div class="news-body card-body">
 								<div class="news-content">
 									<div class="date">22 Aug, 2020</div>
-									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<h4 class="card-title"><a href="blog-single.html">We have announced our new product.</a></h4>
+									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
 						</div>
-						<!-- End Single Blog -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
+						<!-- Blog 2 -->
+						<div class="single-news card border-0 shadow-sm">
 							<div class="news-head">
-								<img src="{% static 'assets/images/blog1.jpg' %}" alt="#">
+								<img src="{% static 'assets/images/blog1.jpg' %}" alt="Blog 2" class="card-img-top">
 							</div>
-							<div class="news-body">
+							<div class="news-body card-body">
 								<div class="news-content">
 									<div class="date">22 Aug, 2020</div>
-									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<h4 class="card-title"><a href="blog-single.html">We have announced our new product.</a></h4>
+									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
 						</div>
-						<!-- End Single Blog -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
+						<!-- Blog 3 -->
+						<div class="single-news card border-0 shadow-sm">
 							<div class="news-head">
-								<img src="{% static 'assets/images/blog1.jpg' %}" alt="#">
+								<img src="{% static 'assets/images/blog1.jpg' %}" alt="Blog 3" class="card-img-top">
 							</div>
-							<div class="news-body">
+							<div class="news-body card-body">
 								<div class="news-content">
 									<div class="date">22 Aug, 2020</div>
-									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<h4 class="card-title"><a href="blog-single.html">We have announced our new product.</a></h4>
+									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
 						</div>
-						<!-- End Single Blog -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
+						<!-- Blog 4 -->
+						<div class="single-news card border-0 shadow-sm">
 							<div class="news-head">
-								<img src="{% static 'assets/images/blog1.jpg' %}" alt="#">
+								<img src="{% static 'assets/images/blog1.jpg' %}" alt="Blog 4" class="card-img-top">
 							</div>
-							<div class="news-body">
+							<div class="news-body card-body">
 								<div class="news-content">
 									<div class="date">22 Aug, 2020</div>
-									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<h4 class="card-title"><a href="blog-single.html">We have announced our new product.</a></h4>
+									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
 						</div>
-						<!-- End Single Blog -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
+						<!-- Blog 5 -->
+						<div class="single-news card border-0 shadow-sm">
 							<div class="news-head">
-								<img src="{% static 'assets/images/blog2.jpg' %}" alt="#">
+								<img src="{% static 'assets/images/blog2.jpg' %}" alt="Blog 5" class="card-img-top">
 							</div>
-							<div class="news-body">
+							<div class="news-body card-body">
 								<div class="news-content">
 									<div class="date">15 Jul, 2020</div>
-									<h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<h4 class="card-title"><a href="blog-single.html">Top five ways for solving teeth problems.</a></h4>
+									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
 						</div>
-						<!-- End Single Blog -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news">
+						<!-- Blog 6 -->
+						<div class="single-news card border-0 shadow-sm">
 							<div class="news-head">
-								<img src="{% static 'assets/images/blog3.jpg' %}" alt="#">
+								<img src="{% static 'assets/images/blog3.jpg' %}" alt="Blog 6" class="card-img-top">
 							</div>
-							<div class="news-body">
+							<div class="news-body card-body">
 								<div class="news-content">
 									<div class="date">05 Jan, 2020</div>
-									<h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
+									<h4 class="card-title"><a href="blog-single.html">We provide highly business solutions.</a></h4>
+									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
 								</div>
 							</div>
 						</div>
-						<!-- End Single Blog -->
+					</div>
+				</div>
+		
+				<!-- Blog Pagination -->
+				<div class="row mt-4">
+					<div class="col-12">
+						<div class="blog-pagination text-center">
+							<!-- Pagination dots will be generated by JavaScript -->
+						</div>
 					</div>
 				</div>
 			</div>
@@ -889,8 +937,168 @@
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
 				const slider = document.querySelector('.projects-slider');
-				const slides = document.querySelectorAll('.projects-slider .single-project');
+				const slides = document.querySelectorAll('.single-project');
 				const paginationContainer = document.querySelector('.slider-pagination');
+				
+				if (!slider || !slides.length) return;
+				
+				let currentIndex = 0;
+				let slidesToShow = getSlidesToShow();
+				let maxIndex = Math.max(0, slides.length - slidesToShow);
+				let slideWidth = calculateSlideWidth();
+				let isDragging = false;
+				let startPos = 0;
+				let currentTranslate = 0;
+				let prevTranslate = 0;
+				let animationID;
+				let autoSlideTimer;
+				const autoSlideInterval = 5000;
+			
+				// Initialize slider
+				createPagination();
+				updateSlider();
+				startAutoSlide();
+				setupTouchEvents();
+			
+				// Handle window resize
+				window.addEventListener('resize', handleResize);
+			
+				function getSlidesToShow() {
+					if (window.innerWidth >= 1200) return 4;
+					if (window.innerWidth >= 992) return 3;
+					if (window.innerWidth >= 768) return 2;
+					return 1;
+				}
+			
+				function calculateSlideWidth() {
+					if (!slides.length) return 0;
+					const slide = slides[0];
+					const style = window.getComputedStyle(slide);
+					return slide.offsetWidth + parseInt(style.marginRight) + parseInt(style.marginLeft);
+				}
+			
+				function createPagination() {
+					paginationContainer.innerHTML = '';
+					const totalDots = maxIndex + 1;
+					
+					for (let i = 0; i < totalDots; i++) {
+						const dot = document.createElement('span');
+						dot.classList.add('pagination-dot');
+						if (i === 0) dot.classList.add('active');
+						dot.dataset.index = i;
+						dot.addEventListener('click', () => goToSlide(i));
+						paginationContainer.appendChild(dot);
+					}
+				}
+			
+				function updateSlider() {
+					if (!slider) return;
+					slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+					updatePagination();
+				}
+			
+				function updatePagination() {
+					const dots = document.querySelectorAll('.pagination-dot');
+					dots.forEach((dot, index) => {
+						dot.classList.toggle('active', index === currentIndex);
+					});
+				}
+			
+				function goToSlide(index) {
+					if (index < 0) index = 0;
+					if (index > maxIndex) index = maxIndex;
+					
+					currentIndex = index;
+					updateSlider();
+					resetAutoSlideTimer();
+				}
+			
+				function nextSlide() {
+					goToSlide(currentIndex + 1);
+				}
+			
+				function prevSlide() {
+					goToSlide(currentIndex - 1);
+				}
+			
+				function startAutoSlide() {
+					autoSlideTimer = setInterval(nextSlide, autoSlideInterval);
+				}
+			
+				function resetAutoSlideTimer() {
+					clearInterval(autoSlideTimer);
+					startAutoSlide();
+				}
+			
+				function handleResize() {
+					const newSlidesToShow = getSlidesToShow();
+					if (slidesToShow !== newSlidesToShow) {
+						slidesToShow = newSlidesToShow;
+						maxIndex = Math.max(0, slides.length - slidesToShow);
+						slideWidth = calculateSlideWidth();
+						createPagination();
+					}
+					goToSlide(Math.min(currentIndex, maxIndex));
+				}
+			
+				// Touch events for mobile swipe
+				function setupTouchEvents() {
+					slider.addEventListener('touchstart', touchStart);
+					slider.addEventListener('touchend', touchEnd);
+					slider.addEventListener('touchmove', touchMove);
+					
+					// Prevent image drag
+					const images = document.querySelectorAll('.project-img');
+					images.forEach(img => {
+						img.addEventListener('dragstart', (e) => e.preventDefault());
+					});
+				}
+			
+				function touchStart(e) {
+					isDragging = true;
+					startPos = e.touches[0].clientX;
+					prevTranslate = currentIndex * slideWidth;
+					slider.style.transition = 'none';
+					clearInterval(autoSlideTimer);
+					cancelAnimationFrame(animationID);
+				}
+			
+				function touchMove(e) {
+					if (!isDragging) return;
+					const currentPos = e.touches[0].clientX;
+					const diff = currentPos - startPos;
+					currentTranslate = prevTranslate - diff;
+					slider.style.transform = `translateX(-${currentTranslate}px)`;
+				}
+			
+				function touchEnd() {
+					if (!isDragging) return;
+					isDragging = false;
+					slider.style.transition = 'transform 0.5s ease';
+					
+					const movedBy = prevTranslate - currentTranslate;
+					if (movedBy < -50 && currentIndex > 0) {
+						goToSlide(currentIndex - 1);
+					} else if (movedBy > 50 && currentIndex < maxIndex) {
+						goToSlide(currentIndex + 1);
+					} else {
+						goToSlide(currentIndex);
+					}
+					
+					resetAutoSlideTimer();
+				}
+			
+				// Pause on hover
+				slider.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
+				slider.addEventListener('mouseleave', resetAutoSlideTimer);
+			});
+
+			
+
+			document.addEventListener('DOMContentLoaded', function() {
+				const slider = document.querySelector('.blog-slider');
+				const slides = document.querySelectorAll('.blog-slider .single-news');
+				const paginationContainer = document.querySelector('.blog-pagination');
 				
 				// Determine how many slides to show based on screen width
 				function getSlidesToShow() {
@@ -945,7 +1153,7 @@
 					slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 					
 					// Update active pagination dot
-					document.querySelectorAll('.pagination-dot').forEach((dot, index) => {
+					document.querySelectorAll('.blog-pagination .pagination-dot').forEach((dot, index) => {
 						dot.classList.toggle('active', index === currentIndex);
 					});
 				}
@@ -1015,6 +1223,9 @@
 				// Start auto-sliding
 				resetAutoSlideTimer();
 			});
+
+
+
 		</script>
 		
 		<!-- jquery Min JS -->

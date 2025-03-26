@@ -97,4 +97,14 @@ urlpatterns = [
     path('settings/add/', SettingsCreateView.as_view(), name='settings_create'),
     path('settings/<int:pk>/edit/', SettingsUpdateView.as_view(), name='settings_update'),
     path('settings/<int:pk>/delete/', SettingsdeleteView.as_view(), name='settings_delete'),
+
+    path('projects/', ProjectsListView.as_view(), name='admin_projects_list'),
+    path('project/add/', ProjectsCreateView.as_view(), name='project_create'),
+    path('project/<int:pk>/edit/', ProjectsUpdateView.as_view(), name='project_update'),
+    path('project/<int:pk>/delete/', ProjectsdeleteView.as_view(), name='project_delete'),
+
+    path('projects-text/', ProdustSectionTextListView.as_view(), name='project_text_list'),
+    path('project-text/add/', ProdustSectionTextCreateView.as_view(), name='project_text_create'),
+    path('project-text/<int:pk>/edit/', ProdustSectionTextUpdateView.as_view(), name='project_text_update'),
+    path('project-text/<int:pk>/delete/', ProdustSectionTextdeleteView.as_view(), name='project_text_delete'),
 ]

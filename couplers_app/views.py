@@ -18,7 +18,9 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     products = AdminProducts.objects.filter(is_active = True)
-    banner_text = AdminBannerText.objects.all().first()
+    banner_text = AdminBannerText.objects.all()
+    projects = Projects.objects.all()
+    project_text = ProdustSectionText.objects.all().first()
     about_us_section = AdminAboutUsSection.objects.all().first()
     counter_section = AdminCounterSection.objects.all().first()
     counter_items = CounterItems.objects.all()
@@ -51,7 +53,9 @@ def home(request):
         'settings':settings,
         'modules':modules,
         'addresses':addresses,
-        'total_modules':total_modules
+        'total_modules':total_modules,
+        'projects':projects,
+        'project_text':project_text
     }
     if request.method == 'POST':
         # Handle form submission    
@@ -618,3 +622,55 @@ class SettingsdeleteView(LoginRequiredMixin, DeleteView):
     model = Settings
     template_name = 'confirm_delete.html'
     success_url = reverse_lazy('couplers:settings_list')
+
+
+class ProjectsListView(LoginRequiredMixin, ListView):
+    model = Projects
+    template_name = 'projects_list.html'
+    context_object_name = 'projects'
+
+
+class ProjectsCreateView(LoginRequiredMixin, CreateView):
+    model = Projects
+    form_class = ProjectForm
+    template_name = 'landing_form.html'
+    success_url = reverse_lazy('couplers:admin_projects_list')
+
+
+class ProjectsUpdateView(LoginRequiredMixin, UpdateView):
+    model = Projects
+    form_class = ProjectForm
+    template_name = 'landing_form.html'
+    success_url = reverse_lazy('couplers:admin_projects_list')
+
+
+class ProjectsdeleteView(LoginRequiredMixin, DeleteView):
+    model = Projects
+    template_name = 'confirm_delete.html'
+    success_url = reverse_lazy('couplers:admin_projects_list')
+
+
+class ProdustSectionTextListView(LoginRequiredMixin, ListView):
+    model = ProdustSectionText
+    template_name = 'projects_section_text_list.html'
+    context_object_name = 'projects_text'
+
+
+class ProdustSectionTextCreateView(LoginRequiredMixin, CreateView):
+    model = ProdustSectionText
+    form_class = ProdustSectionTextForm
+    template_name = 'landing_form.html'
+    success_url = reverse_lazy('couplers:project_text_list')
+
+
+class ProdustSectionTextUpdateView(LoginRequiredMixin, UpdateView):
+    model = ProdustSectionText
+    form_class = ProdustSectionTextForm
+    template_name = 'landing_form.html'
+    success_url = reverse_lazy('couplers:project_text_list')
+
+
+class ProdustSectionTextdeleteView(LoginRequiredMixin, DeleteView):
+    model = ProdustSectionText
+    template_name = 'confirm_delete.html'
+    success_url = reverse_lazy('couplers:project_text_list')

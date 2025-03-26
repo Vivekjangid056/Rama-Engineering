@@ -10,6 +10,19 @@ class AdminProducts(models.Model):
     product_image = models.ImageField(upload_to='product_images/', blank=True, null=True)
     is_active = models.BooleanField(default=False)
 
+class ProdustSectionText(models.Model):
+    heading = models.CharField(max_length=50)
+    subheading = models.CharField(max_length=150)
+
+class Projects(models.Model):
+    project_name = models.CharField(max_length=100)
+    client_name = models.CharField(max_length=50)
+    place = models.CharField(max_length=40)
+    date_completed = models.DateField()
+    short_description = models.CharField(max_length=60)
+    image = models.ImageField(upload_to='projects_images/', blank=True, null=True)
+    is_active = models.BooleanField(default=False)
+
 class AdminModules(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=2000)
@@ -30,10 +43,10 @@ class AdminBannerText(models.Model):
 class AdminAboutUsSection(models.Model):
     heading = models.CharField(max_length=200)
     sub_heading = models.TextField()
-    service1 = models.CharField(max_length=26, null=True, blank=True)
-    service2 = models.CharField(max_length=26, null=True, blank=True)
-    service3 = models.CharField(max_length=26, null=True, blank=True)
-    service4 = models.CharField(max_length=26, null=True, blank=True)
+    service1 = models.CharField(max_length=40, null=True, blank=True)
+    service2 = models.CharField(max_length=40, null=True, blank=True)
+    service3 = models.CharField(max_length=40, null=True, blank=True)
+    service4 = models.CharField(max_length=40, null=True, blank=True)
     about_us_media = models.ImageField(upload_to='about_us_section/', null=True, blank=True)
    
 

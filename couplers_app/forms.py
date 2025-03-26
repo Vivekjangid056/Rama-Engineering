@@ -90,3 +90,17 @@ class SettingsForm(forms.ModelForm):
     class Meta:
         model = Settings
         fields = "__all__"
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Projects
+        fields = "__all__"
+        widgets = {
+                'date_completed': forms.DateInput(attrs={'type': 'date'})
+            }
+
+
+class ProdustSectionTextForm(forms.ModelForm):
+    class Meta:
+        model = ProdustSectionText
+        fields = "__all__"
