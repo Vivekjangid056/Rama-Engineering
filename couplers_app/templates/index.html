@@ -365,6 +365,179 @@
 	}
 }
 
+
+
+
+/* Module Services Section */
+.single-service {
+    text-align: center;
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.module-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.single-service h4 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.single-service h4 a {
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.single-service h4 a:hover {
+    color: #4361ee;
+}
+
+.single-service p {
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* Hover effect */
+.single-service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/* Team Section */
+
+/* Team Section Styling */
+.team-section {
+	background-color: #f8f9fa;
+	padding: 80px 0;
+}
+
+.title-divider {
+	max-width: 100px;
+	margin: 15px auto;
+}
+
+.team-row {
+	row-gap: 30px; /* Added gap between rows */
+}
+
+.team-card {
+	border-radius: 12px;
+	transition: all 0.3s ease;
+	overflow: hidden;
+	background: white;
+	height: 100%;
+}
+
+.team-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-img-container {
+	height: 280px;
+	overflow: hidden;
+}
+
+.team-img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-img {
+	transform: scale(1.05);
+}
+
+.team-social-overlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+	padding: 20px;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-social-overlay {
+	opacity: 1;
+}
+
+.social-links {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
+
+.social-link {
+	color: white;
+	background: rgba(255, 255, 255, 0.2);
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+}
+
+.social-link:hover {
+	background: var(--primary-color);
+	transform: translateY(-3px);
+}
+
+.specializations {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	justify-content: center;
+}
+
+.view-all-btn {
+	padding: 10px 30px;
+	border-radius: 50px;
+	font-weight: 500;
+	transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+	background-color: var(--primary-color);
+	color: white;
+	transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+	.team-img-container {
+		height: 220px;
+	}
+	
+	.team-section {
+		padding: 60px 0;
+	}
+	
+	.team-row {
+		row-gap: 20px; /* Smaller gap on mobile */
+	}
+}
+
+
 	</style>
     <body>
 	
@@ -467,7 +640,7 @@
 								<li><i class="icofont-check-circled"></i>{{about_us_section.service3}}</li>
 								<li><i class="icofont-check-circled"></i>{{about_us_section.service4}}</li>
 							</ul>
-							<a href="contact.html" class="btn btn-primary mt-3">Learn More</a>
+							{% comment %} <a href="contact.html" class="btn btn-primary mt-3">Learn More</a> {% endcomment %}
 						</div>
 					</div>
 				</div>
@@ -670,184 +843,130 @@
     </div>
 </section>
 {% endif %}
-		
-		<!-- Start service -->
-		<section class="services section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title">
-							<h2>We Offer Different Services To Improve Your Health</h2>
-							<img src="{% static 'assets/images/section-img.png' %}" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-prescription"></i>
-							<h4><a href="service-details.html">General Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-tooth"></i>
-							<h4><a href="service-details.html">Teeth Whitening</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-heart-alt"></i>
-							<h4><a href="service-details.html">Heart Surgery</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-listening"></i>
-							<h4><a href="service-details.html">Ear Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-eye-alt"></i>
-							<h4><a href="service-details.html">Vision Problems</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Start Single Service -->
-						<div class="single-service">
-							<i class="icofont icofont-blood"></i>
-							<h4><a href="service-details.html">Blood Transfusion</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
-						</div>
-						<!-- End Single Service -->
-					</div>
-				</div>
-			</div>
-		</section>	
-		<!-- Start Blog Area -->
-		<section class="blog section" id="blog">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title">
-							<h2>Keep up with Our Most Recent Medical News.</h2>
-							<img src="{% static 'assets/images/section-img.png' %}" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
-						</div>
-					</div>
-				</div>
-		
-				<!-- Blog Slider Container -->
-				<div class="blog-slider-container">
-					<div class="blog-slider">
-						<!-- Blog 1 -->
-						<div class="single-news card border-0 shadow-sm">
-							<div class="news-head">
-								<img src="{% static 'assets/images/blog1.jpg' %}" alt="Blog 1" class="card-img-top">
-							</div>
-							<div class="news-body card-body">
-								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
-									<h4 class="card-title"><a href="blog-single.html">We have announced our new product.</a></h4>
-									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
-						<!-- Blog 2 -->
-						<div class="single-news card border-0 shadow-sm">
-							<div class="news-head">
-								<img src="{% static 'assets/images/blog1.jpg' %}" alt="Blog 2" class="card-img-top">
-							</div>
-							<div class="news-body card-body">
-								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
-									<h4 class="card-title"><a href="blog-single.html">We have announced our new product.</a></h4>
-									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
-						<!-- Blog 3 -->
-						<div class="single-news card border-0 shadow-sm">
-							<div class="news-head">
-								<img src="{% static 'assets/images/blog1.jpg' %}" alt="Blog 3" class="card-img-top">
-							</div>
-							<div class="news-body card-body">
-								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
-									<h4 class="card-title"><a href="blog-single.html">We have announced our new product.</a></h4>
-									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
-						<!-- Blog 4 -->
-						<div class="single-news card border-0 shadow-sm">
-							<div class="news-head">
-								<img src="{% static 'assets/images/blog1.jpg' %}" alt="Blog 4" class="card-img-top">
-							</div>
-							<div class="news-body card-body">
-								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
-									<h4 class="card-title"><a href="blog-single.html">We have announced our new product.</a></h4>
-									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
-						<!-- Blog 5 -->
-						<div class="single-news card border-0 shadow-sm">
-							<div class="news-head">
-								<img src="{% static 'assets/images/blog2.jpg' %}" alt="Blog 5" class="card-img-top">
-							</div>
-							<div class="news-body card-body">
-								<div class="news-content">
-									<div class="date">15 Jul, 2020</div>
-									<h4 class="card-title"><a href="blog-single.html">Top five ways for solving teeth problems.</a></h4>
-									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
-						<!-- Blog 6 -->
-						<div class="single-news card border-0 shadow-sm">
-							<div class="news-head">
-								<img src="{% static 'assets/images/blog3.jpg' %}" alt="Blog 6" class="card-img-top">
-							</div>
-							<div class="news-body card-body">
-								<div class="news-content">
-									<div class="date">05 Jan, 2020</div>
-									<h4 class="card-title"><a href="blog-single.html">We provide highly business solutions.</a></h4>
-									<p class="text card-text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		
-				<!-- Blog Pagination -->
-				<div class="row mt-4">
-					<div class="col-12">
-						<div class="blog-pagination text-center">
-							<!-- Pagination dots will be generated by JavaScript -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
+{% if modules %}
+<section class="services section">
+    <div class="container">
+        <div class="row">
+            {% if features_section %}
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>{{ features_section.heading }}</h2>
+                    <img src="{% static 'assets/images/section-img.png' %}" alt="#">
+                    <p>{{ features_section.sub_heading }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            {% for module in modules %}
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="single-service">
+                    {% if module.module_image %}
+                        <img src="{{ module.module_image.url }}" alt="{{ module.name }}" class="module-image">
+                    {% else %}
+                        <img src="{% static 'assets/images/project-dummy.jpg' %}" alt="{{ module.name }}" class="module-image">
+                    {% endif %}
+                    <h4>{{ module.name }}</h4>
+                    <p>{{ module.description }}</p>    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+{% if team %}
+<section class="team-section section" id="team">
+    <div class="container">
+		{% if team_section %}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center mb-5">
+                    <h2 class="display-5 fw-bold">{{ team_section.heading }}</h2>
+                    <div class="title-divider">
+                        <img src="{% static 'assets/images/section-img.png' %}" alt="divider" class="img-fluid">
+                    </div>
+                    <p class="lead text-muted">{{ team_section.sub_heading }}</p>
+                </div>
+            </div>
+        </div>
+		{% endif %}
+
+        <div class="row g-4 justify-content-center team-row">
+            {% for member in team %}
+            <div class="col-xl-3 col-lg-4 col-md-6 team-member {% if forloop.counter > 4 %}d-none extra-member{% endif %}">
+                <div class="team-card card border-0 shadow-sm h-100 overflow-hidden">
+                    <div class="team-img-container position-relative overflow-hidden">
+                        <img src="{{ member.image.url }}" alt="{{ member.name }}" class="card-img-top team-img">
+                        <div class="team-social-overlay">
+                            <div class="social-links">
+                                {% if member.facebook %}<a href="{{ member.facebook }}" target="_blank" class="social-link"><i class="icofont-facebook"></i></a>{% endif %}
+                                {% if member.instagram %}<a href="{{ member.instagram }}" target="_blank" class="social-link"><i class="icofont-instagram"></i></a>{% endif %}
+                                {% if member.twitter %}<a href="{{ member.twitter }}" target="_blank" class="social-link"><i class="icofont-twitter"></i></a>{% endif %}
+                                {% if member.linkedin %}<a href="{{ member.linkedin }}" target="_blank" class="social-link"><i class="icofont-linkedin"></i></a>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <h4 class="card-title mb-1">{{ member.name }}</h4>
+                        <p class="text-primary mb-3">{{ member.designation }}</p>
+                        {% if member.specialization %}
+                        <div class="specializations">
+                            {% for spec in member.specialization.all %}
+                            <span class="badge bg-light text-dark rounded-pill">{{ spec.name }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if team|length > 4 %}
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <button class="btn btn-outline-primary view-all-btn" id="viewAllBtn">
+                    View All Team Members <i class="icofont-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const viewAllBtn = document.getElementById('viewAllBtn');
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', function() {
+            const extraMembers = document.querySelectorAll('.extra-member');
+            const icon = this.querySelector('i');
+            
+            if (this.classList.contains('showing-all')) {
+                // Hide extra members
+                extraMembers.forEach(member => {
+                    member.classList.add('d-none');
+                });
+                this.innerHTML = 'View All Team Members <i class="cofont-arrow-right ms-2"></i>';
+                this.classList.remove('showing-all');
+            } else {
+                // Show extra members
+                extraMembers.forEach(member => {
+                    member.classList.remove('d-none');
+                });
+                this.innerHTML = 'Show Less <i class="icofont-arrow-up ms-2"></i>';
+                this.classList.add('showing-all');
+                
+                // Smooth scroll to button position
+                this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    }
+});
+</script>
+{% endif %}
 		<!-- End Blog Area -->
 		<footer id="footer" class="footer ">
 			<!-- Footer Top -->

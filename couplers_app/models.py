@@ -29,11 +29,51 @@ class AdminModules(models.Model):
     module_image = models.ImageField(upload_to='module_images/', blank=True, null=True)
     is_active = models.BooleanField(default=False)
 
+
 class AdminTeam(models.Model):
     name = models.CharField(max_length=200)
-    designation = models.CharField(max_length=200)
+    designation = models.CharField(max_length=30)
     image = models.ImageField(upload_to='team_images/', blank=True, null=True)
     is_active = models.BooleanField(default=False)
+    
+    # Social Media Fields
+    facebook = models.URLField(
+        max_length=255, 
+        blank=True, 
+        null=True,
+        help_text="Enter Facebook profile URL"
+    )
+    instagram = models.URLField(
+        max_length=255, 
+        blank=True, 
+        null=True,
+        help_text="Enter Instagram profile URL"
+    )
+    linkedin = models.URLField(
+        max_length=255, 
+        blank=True, 
+        null=True,
+        help_text="Enter LinkedIn profile URL"
+    )
+    twitter = models.URLField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text="Enter Twitter/X profile URL"
+    )
+    # Display ordering
+    display_order = models.PositiveIntegerField(
+        default=0,
+        help_text="Higher numbers appear first"
+    )
+
+    class Meta:
+        verbose_name = "Team Member"
+        verbose_name_plural = "Team Members"
+        ordering = ['-display_order', 'name']
+
+    def __str__(self):
+        return f"{self.name} - {self.designation}"
 
 class AdminBannerText(models.Model):
     heading = models.CharField(max_length=200)
