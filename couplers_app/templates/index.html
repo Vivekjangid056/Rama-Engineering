@@ -208,76 +208,6 @@
 }
 
 
-
-
-
-
-
-/* Blog Slider Container */
-.blog-slider-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 5px 0;
-}
-
-/* Blog Slider Wrapper */
-.blog-slider {
-    display: flex;
-    transition: transform 0.8s ease;
-    padding: 10px 0;
-}
-
-/* Individual Blog Card */
-.blog-slider .single-news {
-    flex: 0 0 calc(25% - 20px);  /* Exactly 4 cards with small gap */
-    margin-right: 20px;
-    box-sizing: border-box;
-}
-
-/* Responsive Adjustments for Blog Slider */
-@media (max-width: 1199px) {
-    .blog-slider .single-news {
-        flex: 0 0 calc(33.333% - 20px);  /* 3 cards for medium-large screens */
-    }
-}
-
-@media (max-width: 991px) {
-    .blog-slider .single-news {
-        flex: 0 0 calc(50% - 20px);  /* 2 cards for medium screens */
-    }
-}
-
-@media (max-width: 767px) {
-    .blog-slider .single-news {
-        flex: 0 0 calc(100% - 20px);  /* 1 card for small screens */
-    }
-}
-
-/* Blog Pagination */
-.blog-pagination {
-    margin-top: 20px;
-}
-
-.blog-pagination .pagination-dot {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    background-color: #ddd;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.blog-pagination .pagination-dot.active {
-    background-color: #007bff;
-}
-
-
-
-
-
 /* Banner CSS */
 
 
@@ -973,7 +903,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<div class="footer-top">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-3 col-md-6 col-12">
+						<div class="col-lg-4 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>About Us</h2>
 								<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
@@ -988,32 +918,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								<!-- End Social -->
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer f-link">
-								<h2>Quick Links</h2>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>	
-										</ul>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
+						<div class="col-lg-4 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>Open Hours</h2>
 								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
@@ -1024,7 +929,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								</ul>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6 col-12">
+						<div class="col-lg-4 col-md-6 col-12">
 							<div class="single-footer">
 								<h2>Newsletter</h2>
 								<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
@@ -1211,142 +1116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				slider.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
 				slider.addEventListener('mouseleave', resetAutoSlideTimer);
 			});
-
-			
-
-			document.addEventListener('DOMContentLoaded', function() {
-				const slider = document.querySelector('.blog-slider');
-				const slides = document.querySelectorAll('.blog-slider .single-news');
-				const paginationContainer = document.querySelector('.blog-pagination');
-				
-				// Determine how many slides to show based on screen width
-				function getSlidesToShow() {
-					if (window.innerWidth >= 1200) return 4;  // Show exactly 4 on large screens
-					if (window.innerWidth >= 992) return 3;   // Show 3 on medium-large screens
-					if (window.innerWidth >= 768) return 2;   // Show 2 on medium screens
-					return 1;                                 // Show 1 on small screens
-				}
-				
-				let currentIndex = 0;
-				let slidesToShow = getSlidesToShow();
-				let maxIndex = slides.length - slidesToShow;
-				
-				// Auto slide interval in milliseconds (5 seconds)
-				const autoSlideInterval = 5000;
-				let autoSlideTimer;
-				
-				// Create pagination dots based on visible slides
-				function createPagination() {
-					// Clear existing pagination
-					paginationContainer.innerHTML = '';
-					
-					// Calculate how many pagination dots we need
-					const totalDots = maxIndex + 1;
-					
-					for (let i = 0; i < totalDots; i++) {
-						const dot = document.createElement('span');
-						dot.classList.add('pagination-dot');
-						if (i === 0) dot.classList.add('active');
-						dot.dataset.index = i;
-						paginationContainer.appendChild(dot);
-						
-						dot.addEventListener('click', () => {
-							goToSlide(i);
-							resetAutoSlideTimer();
-						});
-					}
-				}
-				
-				// Calculate slide widths correctly
-				function calculateSlideWidth() {
-					// Get actual width of a slide
-					const slideStyles = window.getComputedStyle(slides[0]);
-					const slideWidth = slides[0].offsetWidth + 
-									   parseInt(slideStyles.marginRight, 10);
-					return slideWidth;
-				}
-				
-				// Update slide positions and pagination
-				function updateSlider() {
-					const slideWidth = calculateSlideWidth();
-					slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-					
-					// Update active pagination dot
-					document.querySelectorAll('.blog-pagination .pagination-dot').forEach((dot, index) => {
-						dot.classList.toggle('active', index === currentIndex);
-					});
-				}
-				
-				// Go to specific slide
-				function goToSlide(index) {
-					// Handle edge cases with circular navigation
-					if (index > maxIndex) {
-						currentIndex = 0;
-					} else if (index < 0) {
-						currentIndex = maxIndex;
-					} else {
-						currentIndex = index;
-					}
-					
-					updateSlider();
-				}
-				
-				// Auto slide to next
-				function autoSlide() {
-					goToSlide(currentIndex + 1);
-				}
-				
-				// Reset and restart auto slide timer
-				function resetAutoSlideTimer() {
-					clearInterval(autoSlideTimer);
-					autoSlideTimer = setInterval(autoSlide, autoSlideInterval);
-				}
-				
-				// Handle window resize
-				window.addEventListener('resize', () => {
-					// Recalculate how many slides should be shown
-					const newSlidesToShow = getSlidesToShow();
-					const newMaxIndex = slides.length - newSlidesToShow;
-					
-					// Update variables if needed
-					if (slidesToShow !== newSlidesToShow) {
-						slidesToShow = newSlidesToShow;
-						maxIndex = newMaxIndex;
-						
-						// Ensure current index is valid
-						if (currentIndex > maxIndex) {
-							currentIndex = maxIndex;
-						}
-						
-						// Recreate pagination
-						createPagination();
-					}
-					
-					// Update slider display
-					updateSlider();
-				});
-				
-				// Pause auto-sliding when user hovers over slider
-				slider.addEventListener('mouseenter', () => {
-					clearInterval(autoSlideTimer);
-				});
-				
-				slider.addEventListener('mouseleave', () => {
-					resetAutoSlideTimer();
-				});
-				
-				// Initialize slider
-				createPagination();
-				updateSlider();
-				
-				// Start auto-sliding
-				resetAutoSlideTimer();
-			});
-
-
-
 		</script>
-		
 		<!-- jquery Min JS -->
         <script src="{% static 'assets/js_home/jquery.min.js' %}"></script>
 		<!-- jquery Migrate JS -->

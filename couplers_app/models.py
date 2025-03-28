@@ -220,3 +220,10 @@ class EnquiryEmail(models.Model):
     class Meta:
         verbose_name = "EnquiryEmail Model"
         verbose_name_plural = "EnquiryEmail Models"
+
+class Logo(models.Model):
+    image= models.ImageField(upload_to='logo')
+
+
+class TrustedClients(models.Model):
+    pass
